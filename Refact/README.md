@@ -1,8 +1,8 @@
 # P3-Refact
 
 
-- MainView <img src="icon/icon.png" align = "right" >
+- MainView <img src="icon/iconS.png" align = "right" >
 
-- SignUP <img src="icon/icon.png" align = "right" >
+- SignUP <img src="icon/iconN.png" align = "right" >
 
 - FactoryEmployee
