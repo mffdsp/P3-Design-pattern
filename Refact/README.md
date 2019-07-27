@@ -3,6 +3,6 @@
 
 - MainView 
 
-- SignUP <img src="../icon/icon.png">
+- SignUP <src src="../icon/icon.png">
 
 - FactoryEmployee
