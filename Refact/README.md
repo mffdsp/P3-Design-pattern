@@ -1,12 +1,6 @@
 # P3-Refact
 
 
-
-
-
-
-
------------------------------------
 ## View
 
 - DetailView <img src="icon/iconS.png" align = "right" >
@@ -21,12 +15,10 @@
 
 - EditView <img src="icon/iconN.png" align = "right" >
 
------------------------------------
 ## Employee
 
 - FactoryEmployee - SignUP <img src="icon/iconN.png" align = "right" >
 
------------------------------------
 ## Schedule
 
 - Schedule - SignUP <img src="icon/iconN.png" align = "right" >
