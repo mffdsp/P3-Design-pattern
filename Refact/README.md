@@ -10,10 +10,10 @@
 
 -----------------------------------
 
-- DetailView - SignUP <img src="icon/iconS.png" align = "right" >
+- DetailView <img src="icon/iconS.png" align = "right" >
 
 - MainView <img src="icon/iconS.png" align = "right" >
 
-- PayView - SignUP <img src="icon/iconS.png" align = "right" >
+- PayView <img src="icon/iconS.png" align = "right" >
 
-- SellView - SignUP <img src="icon/iconS.png" align = "right" >
+- SellView <img src="icon/iconS.png" align = "right" >
