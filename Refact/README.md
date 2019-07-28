@@ -17,3 +17,7 @@
 - PayView <img src="icon/iconS.png" align = "right" >
 
 - SellView <img src="icon/iconS.png" align = "right" >
+
+- ListView <img src="icon/iconN.png" align = "right" >
+
+- EditView <img src="icon/iconN.png" align = "right" >
