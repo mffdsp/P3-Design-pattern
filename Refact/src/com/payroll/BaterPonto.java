@@ -26,7 +26,6 @@ public class BaterPonto extends JFrame {
 		
 	public BaterPonto(Funcionario[] func, int index) {
 		 
-	
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 263, 208);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -37,7 +36,7 @@ public class BaterPonto extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
-		setContentPane(contentPane);
+		setContentPane(contentPane); 
 		
 		JLabel lb1 = new JLabel("Bem vindo, " + func[index].getName());
 		lb1.setFont(new Font("Tahoma", Font.PLAIN, 14));

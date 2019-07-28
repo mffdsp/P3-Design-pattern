@@ -34,7 +34,7 @@ public class ListView extends JFrame {
 	
 	public ListView(DefaultListModel DLMA, DefaultListModel DLMC,  DefaultListModel DLMH, Funcionario[] func) {
 		
-		setForeground(Color.WHITE);
+		setForeground(Color.WHITE); 
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Lista de funcionários adicionados ao sistema");

@@ -45,13 +45,10 @@ public class RealEdit extends JFrame {
 	private JTextField TFvalor;
 	private JTextField TFadress;
 	private JTextField TFname;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private static int SSindex = 0;
 	private int acc = 1;
 	boolean custom = false;
 	private JTextField TFcomi;
-	private JTextField TFscode;
+	private JTextField TFscode; 
 
 	public RealEdit(Funcionario[] func, int index, Agenda[] agenda) {
 		
@@ -405,10 +402,6 @@ public class RealEdit extends JFrame {
 					return;
 				}
 				//ENDOFTRY CATCH, BEFORE SAVING
-				 
-								
-				
-				
 				//Se não há erro, peço confirmação
 
 				Agenda nocustom = new Agenda(); 

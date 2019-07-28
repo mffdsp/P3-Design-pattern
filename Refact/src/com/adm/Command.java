@@ -64,7 +64,7 @@ public class Command {
 			
 		}
 	
-	public static void UR_ACTION(Funcionario[] func, String action){
+	public static void UR_ACTION(Funcionario[] func, String action) throws NullPointerException{
 		
 		if(SSindex == 1 && action.equals("UNDO")) {
 			System.out.println("EMPTY/ENDOF STACK");
@@ -83,6 +83,7 @@ public class Command {
 				UNDOAC -= 1;
 				SSindex += 1;
 		}
+		
 		//Nullpointer (?)
 		try {
 			for(int i = 0; i < 500; i++) {

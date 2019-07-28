@@ -15,7 +15,7 @@ public class FactoryEmployee {
         if (type.equals("H"))
         	return new Horista(name, adress, ftype, payMode, code);
         else 
-        	return null;
+        	return null; 
     }
    
 }

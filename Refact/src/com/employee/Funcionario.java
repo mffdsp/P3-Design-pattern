@@ -46,7 +46,6 @@ public abstract class Funcionario implements Cloneable{
 			this.agenda = new Semanal();
 			this.agenda.setFrequencia(agenda.getFrequencia());
 			((Semanal)this.agenda).setDia((((Semanal) agenda).getDia()));
-			
 		}
 	}
 	

@@ -14,7 +14,7 @@ public class Horista extends Funcionario implements Cloneable{
 		this.payMode = payMode;
 		this.code = code;
 	}
-	
+	 
 	@Override
 	public Horista clone() throws CloneNotSupportedException {
 	        return (Horista) super.clone();

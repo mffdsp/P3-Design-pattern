@@ -22,9 +22,8 @@ public class Comissionado extends Funcionario implements Cloneable{
 	 
 	private double valordevendas;
 	private double bonussalary = 0; 
-	private double psalary = 0; 
+	private double psalary = 0;  
 
-	
 	private int pvenda = 15;
 	
 	@Override
