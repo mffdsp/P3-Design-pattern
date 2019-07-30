@@ -1,30 +1,13 @@
 package com.view;
 
 
-
-import java.awt.Toolkit;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
 import com.builder.DetailViewBuilder;
-import com.employee.Assalariado;
-import com.employee.Comissionado;
 import com.employee.Funcionario;
-import com.employee.Horista;
-import com.schedule.Mensal;
-import com.schedule.Semanal;
-
-import java.awt.SystemColor;
 import javax.swing.JLabel;
-import java.awt.Font;
 import javax.swing.JTextField;
-import java.awt.Color;
-import java.awt.Dimension;
 
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
 
 public class DetailView extends JFrame {
 

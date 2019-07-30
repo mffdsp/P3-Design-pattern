@@ -57,54 +57,7 @@ public class MainViewBuilder implements ViewBuilder{
 
         contentPane.setBackground(SystemColor.menu);
         contentPane.setForeground(SystemColor.inactiveCaption);
-    } 
-    
-    public void addBTN(JPanel contentPane, JButton BTedit, JButton BTremove, JButton BTlist, JButton BTadd, JButton BTatthora, JButton UndoBTN, JButton RedoBTN, JButton BTponto, JButton BTtaxa, JButton BTvenda, JButton BTagenda, JButton BTfolha, JButton BTattdia) throws Exception{
-        
-     
-        
-        
-      
-        
-        
-      
-        
-       
-        
-       
-        
-        
-        
-     
-        
-       
-        
-        
-        
-        
-        
-        
-        Style Style = new Style();
-        Style.setGround("WHITE", BTfolha, BTagenda, BTvenda, BTtaxa, BTponto, BTedit, BTremove, BTadd, BTlist);
-        Style.setGround("CAPTION",BTatthora);
-        
-        contentPane.setLayout(null);
-        contentPane.add(BTadd);
-        contentPane.add(BTremove);
-        contentPane.add(BTedit);
-        contentPane.add(BTlist);
-        contentPane.add(BTatthora);
-        contentPane.add(BTponto);
-        contentPane.add(BTtaxa);
-        contentPane.add(BTvenda);
-        contentPane.add(BTagenda);
-        contentPane.add(BTfolha);
-        contentPane.add(BTattdia);
-        contentPane.add(UndoBTN);
-        contentPane.add(RedoBTN);
-        
     }
-        
     
     public void addLBL(JPanel contentPane, JLabel texto, JLabel LBadd, JLabel LBremove, JLabel LBedit, JLabel LBlist, JLabel background, JLabel LBdata, JLabel LBhora, JLabel LBcartao, JLabel LBtaxa, JLabel LBagenda, JLabel LBvenda, JLabel label_1, JLabel LBfolha, JLabel LBsemana, JLabel LBur) throws Exception{
         

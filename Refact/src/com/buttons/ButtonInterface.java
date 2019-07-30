@@ -10,4 +10,5 @@ public interface ButtonInterface {
 	void addBT(JButton BT, JPanel cp);
 	void styleBT(JButton BT, JPanel cp);
 	void handlerBT(JButton BT, Funcionario[] funcionarios);
+	
 }

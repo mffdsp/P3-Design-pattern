@@ -1,53 +1,45 @@
 package com.payroll;
 
 
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import com.adm.Command;
 import com.adm.Utility;
+import com.builder.TaxaViewBuilder;
 import com.employee.Assalariado;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.employee.Horista;
-import com.view.MainView;
-
-import javax.swing.JTextField;
-import javax.swing.JEditorPane;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Dimension;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import java.awt.SystemColor;
-import java.awt.Toolkit;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class TaxaS extends JFrame {
 
-	private JPanel contentPane;
 	private JTextField TFvalor;
 
 	public TaxaS(Funcionario[] func, int index) {
+		
 		Utility UT = new Utility();
 		
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 225, 205);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MainView.class.getResource("/com/payroll/icons/APPICON.png")));
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		int height = screenSize.height;
-		int width = screenSize.width;
-		setLocation(width/2-getSize().width/2, height/2-getSize().height/2);
-		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.menu);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		TaxaViewBuilder TaxaViewBuilder = new TaxaViewBuilder();
+		
+		TaxaViewBuilder.config(this);
+		
+		JPanel contentPane = new JPanel();
+		TaxaViewBuilder.config(contentPane);
 		setContentPane(contentPane);
-		contentPane.setLayout(null); 
-		setTitle("Registrar Taxa");
+		
 		
 		JEditorPane TFobs = new JEditorPane();
 		TFobs.setBackground(SystemColor.textHighlightText);

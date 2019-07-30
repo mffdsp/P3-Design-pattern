@@ -14,50 +14,43 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Cursor;
-import java.awt.Dimension;
 
 import javax.swing.border.CompoundBorder;
 
+import com.builder.ListViewBuilder;
 import com.employee.Assalariado;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.employee.Horista;
 
-import java.awt.SystemColor;
-import java.awt.Toolkit;
 import javax.swing.JScrollPane;
 
 public class ListView extends JFrame {
 
-	private JPanel contentPane;
+	private static final long serialVersionUID = 1L;
 	int mode = 1;
 	
-	public ListView(DefaultListModel DLMA, DefaultListModel DLMC,  DefaultListModel DLMH, Funcionario[] func) {
+	public ListView(DefaultListModel<?> DLMA, DefaultListModel<?> DLMC,  DefaultListModel<?> DLMH, Funcionario[] func) {
 		
-		setForeground(Color.WHITE); 
-		setType(Type.UTILITY);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setTitle("Lista de funcionários adicionados ao sistema");
-		setBounds(100, 100, 545, 335);
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		int height = screenSize.height;
-		int width = screenSize.width;
-		setLocation(width/2-getSize().width/2, height/2-getSize().height/2);
-		contentPane = new JPanel();
-		contentPane.setForeground(Color.WHITE);
-		contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		ListViewBuilder ListViewBuilder = new ListViewBuilder();
+		
+		ListViewBuilder.config(this);
+		
+		JPanel contentPane = new JPanel();
+		ListViewBuilder.config(contentPane);
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		getContentPane().setBackground(SystemColor.inactiveCaption);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MainView.class.getResource("/com/payroll/icons/APPICON.png")));
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(135, 11, 385, 244);
-		contentPane.add(scrollPane);
-		
-
 		JList hlist = new JList();
+		JButton BThoristas = new JButton("Horistas");
+		JButton BTcomissionados = new JButton("Comissionados");
+		JButton BTassalariado = new JButton("Assalariados");
+		JButton BTdetalhar = new JButton("Detalhar");
+		
+		scrollPane.setBounds(135, 11, 385, 244);
+		
 		scrollPane.setViewportView(hlist);
+		
 		hlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		hlist.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		hlist.setForeground(Color.BLACK);
@@ -66,48 +59,51 @@ public class ListView extends JFrame {
 		hlist.setSelectedIndices(new int[] {2});
 		hlist.setModel(DLMH);
 		
-		JButton BThoristas = new JButton("Horistas");
 		BThoristas.setForeground(Color.BLACK);
 		BThoristas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		BThoristas.setIcon(null);
 		BThoristas.setBackground(Color.WHITE);
+		BThoristas.setBounds(10, 11, 115, 59);
 		BThoristas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mode = 1;
 				hlist.setModel(DLMH);
 			}
 		});
-		BThoristas.setBounds(10, 11, 115, 59);
-		contentPane.add(BThoristas);
 		
-		JButton BTcomissionados = new JButton("Comissionados");
 		BTcomissionados.setBackground(Color.WHITE);
+		BTcomissionados.setBounds(10, 196, 115, 59);
 		BTcomissionados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mode = 2;
 				hlist.setModel(DLMC);
 			}
 		});
-		BTcomissionados.setBounds(10, 196, 115, 59);
-		contentPane.add(BTcomissionados);
 		
-		JButton BTassalariado = new JButton("Assalariados");
 		BTassalariado.setBackground(Color.WHITE);
+		BTassalariado.setBorder(null);
+		BTassalariado.setBounds(10, 102, 115, 59);
 		BTassalariado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mode = 3;
 				hlist.setModel(DLMA);
 			}
 		});
-		BTassalariado.setBorder(null);
-		BTassalariado.setBounds(10, 102, 115, 59);
-		contentPane.add(BTassalariado);
-
-		//Find func
-		JButton BTdetalhar = new JButton("Detalhar");
+		
 		BTdetalhar.setToolTipText("Clique para detalhar o funcionario");
 		BTdetalhar.setBounds(431, 266, 89, 31);
+		setListener(BTdetalhar, func, hlist);
+		
+		contentPane.add(BTcomissionados);
+		contentPane.add(BThoristas);
+		contentPane.add(BTassalariado);
 		contentPane.add(BTdetalhar);
+		contentPane.add(scrollPane);
+		
+	}
+	
+	public void setListener(JButton BTdetalhar, Funcionario[] func, JList hlist) {
+		
 		BTdetalhar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -149,6 +145,5 @@ public class ListView extends JFrame {
 				}	
 			}
 		}});
-		
 	}
 }

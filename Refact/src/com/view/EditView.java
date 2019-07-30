@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.adm.Command;
 import com.adm.Utility;
+import com.builder.EditViewBuilder;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.payroll.BaterPonto;
@@ -29,48 +30,40 @@ import javax.swing.JButton;
 
 public class EditView extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField codeField;
-	Utility UT = new Utility();
-
+	private static JTextField codeField = new JTextField();
+	static Utility UT = new Utility();
+	
 	public EditView(Funcionario[] func, String action , Agenda[] agenda) {
 		
-		setResizable(false);
-		setTitle("Insira o Código de Acesso");
-		if(action.equals("TSindical")) {
-			setTitle("Insira o código sindical");
-		}
-		setForeground(Color.WHITE);
-		setType(Type.UTILITY);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 225, 145);
-		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.menu);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		EditViewBuilder EditViewBuilder = new EditViewBuilder();
+		
+		EditViewBuilder.config(this, action);
+		
+		JPanel contentPane = new JPanel();
+		EditViewBuilder.config(contentPane);
 		setContentPane(contentPane);
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		int height = screenSize.height;
-		int width = screenSize.width;
-		setLocation(width/2-getSize().width/2, height/2-getSize().height/2);
-		contentPane.setLayout(null);
 		
 		codeField = new JTextField();
+		JButton btnIr = new JButton("IR");
+		
 		codeField.setColumns(10);
 		codeField.setBackground(SystemColor.textHighlightText);
 		codeField.setBounds(20, 22, 168, 37);
 		
+		btnIr.setBounds(141, 66, 50, 34);
+		setListener(btnIr, func, action, this, agenda);
+		
+		contentPane.add(btnIr);
 		contentPane.add(codeField);
-		
-		
-		JButton btnIr = new JButton("IR");
+	}
+	
+	static void setListener(JButton btnIr, Funcionario[] func, String action, EditView frame, Agenda[] agenda){
 		
 		btnIr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int indice = 0;
 				boolean notvalid = true;
-				boolean sinnotvalid = true;
 				try {
-					int teste = Integer.parseInt(codeField.getText());
 					indice = UT.getIndex(codeField.getText());
 					notvalid = func[indice] == null || Integer.parseInt(codeField.getText()) < 20190 || !func[indice].isSaved();
 				}
@@ -80,103 +73,96 @@ public class EditView extends JFrame {
 							"Formato inválido", "ERRO", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				
-				if(action.equals("editar"))
-				{
-					if(notvalid)
-					{
-						JOptionPane.showMessageDialog(null ,
-								"Código incorreto", "ERRO", JOptionPane.ERROR_MESSAGE);
-					}
-					//JOptionPane.showMessageDialog(null, texto1.getText());
-					else {
-						setVisible(false);
-						new RealEdit(func, indice, agenda).setVisible(true);
-					}
-				}
-				if(action.equals("remover"))  
-				{
-					 
-					if(notvalid)
-					{
-						JOptionPane.showMessageDialog(null ,
-								"Código incorreto", "ERRO", JOptionPane.ERROR_MESSAGE);
-					}
-					//JOptionPane.showMessageDialog(null, texto1.getText());
-					else {
-						int dialogButton = JOptionPane.YES_NO_OPTION;
-						 DetailView DV = new DetailView(func[indice], 1);
-						 DV.setVisible(true);
-						int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja remover o funcionario?", "Confirmação", dialogButton);
-						if(!(dialogResult == JOptionPane.YES_OPTION) ){
-							DV.setVisible(false);
-							return;
-						}
-						DV.setVisible(false);
-						func[indice].setSaved(false);
-						JOptionPane.showMessageDialog(null ,
-						"Funcionário removido com sucesso", "Remover", JOptionPane.INFORMATION_MESSAGE);
-						try {
-							Command.saveS(func);
-						} catch (CloneNotSupportedException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-						setVisible(false);
-					}
-				}
-				if(action.equals("TSindical"))
-				{
-					int sindex = UT.findFuncSind(func, codeField.getText());
-					if(sindex == -1)
-					{
-						JOptionPane.showMessageDialog(null ,
-								"Código incorreto", "ERRO", JOptionPane.ERROR_MESSAGE);
-					}
-					//JOptionPane.showMessageDialog(null, texto1.getText());
-					else {
-						new TaxaS(func, sindex).setVisible(true);
-						setVisible(false); 
-					}
-				}
-				if(action.equals("Lvenda"))
-				{
-					if(notvalid)
-					{
-						JOptionPane.showMessageDialog(null ,
-								"Código incorreto", "ERRO", JOptionPane.ERROR_MESSAGE);
-					}
-					//JOptionPane.showMessageDialog(null, texto1.getText());
-					else {
-						if(func[indice] instanceof Comissionado) {
-							new SellView(func, indice).setVisible(true);
-						}
-						else {
-							JOptionPane.showMessageDialog(null ,
-									"Funcionário não é do tipo Comissionado\n"
-									+ "Para modificar, Dirija-se a edição de dados", "ERRO", JOptionPane.ERROR_MESSAGE);
-						}
-						setVisible(false);
-					}
-				}
-				if(action.equals("BPonto"))
-				{
-					if(notvalid)
-					{
-						JOptionPane.showMessageDialog(null ,
-								"Código incorreto", "ERRO", JOptionPane.ERROR_MESSAGE);
-					}
-					//JOptionPane.showMessageDialog(null, texto1.getText());
-					else {
-						new BaterPonto(func, indice).setVisible(true);
-						setVisible(false);
-					}
-				}
-				
+				setAction(action, notvalid, func, indice,agenda, frame);
+			
 			}
 		});
+	}
+	
+	
+	static void setAction(String action, boolean notvalid, Funcionario[] func, int indice, Agenda[] agenda, EditView frame) {
 		
-		btnIr.setBounds(141, 66, 50, 34);
-		contentPane.add(btnIr);
+		if(action.equals("editar"))
+		{
+			if(notvalid)
+			{
+				JOptionPane.showMessageDialog(null ,
+						"Código incorreto", "ERRO", JOptionPane.ERROR_MESSAGE);
+			}
+			else {
+				frame.setVisible(false);
+				new RealEdit(func, indice, agenda).setVisible(true);
+			}
+		}else if(action.equals("remover"))  
+		{
+			if(notvalid)
+			{
+				JOptionPane.showMessageDialog(null ,
+						"Código incorreto", "ERRO", JOptionPane.ERROR_MESSAGE);
+			}	else {
+				int dialogButton = JOptionPane.YES_NO_OPTION;
+				 DetailView DV = new DetailView(func[indice], 1);
+				 DV.setVisible(true);
+				int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja remover o funcionario?", "Confirmação", dialogButton);
+				if(!(dialogResult == JOptionPane.YES_OPTION) ){
+					DV.setVisible(false);
+					return;
+				}
+				DV.setVisible(false);
+				func[indice].setSaved(false);
+				JOptionPane.showMessageDialog(null ,
+				"Funcionário removido com sucesso", "Remover", JOptionPane.INFORMATION_MESSAGE);
+				try {
+					Command.saveS(func);
+				} catch (CloneNotSupportedException e1) {
+					e1.printStackTrace();
+				}
+				frame.setVisible(false);
+			}
+		}else if(action.equals("TSindical"))
+		{
+			int sindex = UT.findFuncSind(func, codeField.getText());
+			if(sindex == -1)
+			{
+				JOptionPane.showMessageDialog(null ,
+						"Código incorreto", "ERRO", JOptionPane.ERROR_MESSAGE);
+			}
+			else {
+				new TaxaS(func, sindex).setVisible(true);
+				frame.setVisible(false); 
+			}
+		}
+		if(action.equals("Lvenda"))
+		{
+			if(notvalid)
+			{
+				JOptionPane.showMessageDialog(null ,
+						"Código incorreto", "ERRO", JOptionPane.ERROR_MESSAGE);
+			}
+			else {
+				if(func[indice] instanceof Comissionado) {
+					new SellView(func, indice).setVisible(true);
+				}
+				else {
+					JOptionPane.showMessageDialog(null ,
+							"Funcionário não é do tipo Comissionado\n"
+							+ "Para modificar, Dirija-se a edição de dados", "ERRO", JOptionPane.ERROR_MESSAGE);
+				}
+				frame.setVisible(false);
+			}
+		}
+		if(action.equals("BPonto"))
+		{
+			if(notvalid)
+			{
+				JOptionPane.showMessageDialog(null ,
+						"Código incorreto", "ERRO", JOptionPane.ERROR_MESSAGE);
+			}
+			else {
+				new BaterPonto(func, indice).setVisible(true);
+				frame.setVisible(false);
+			}
+		}
+		
 	}
 }

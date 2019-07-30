@@ -3,16 +3,11 @@ package com.buttons.main;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.buttons.ButtonInterface;
-import com.employee.Funcionario;
-import com.handler.Handler;
 import com.view.MainView;
 
 public class BTpattern{
