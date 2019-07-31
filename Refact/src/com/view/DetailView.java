@@ -2,11 +2,12 @@ package com.view;
 
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import com.builder.DetailViewBuilder;
 import com.employee.Funcionario;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 
 public class DetailView extends JFrame {
@@ -20,7 +21,7 @@ public class DetailView extends JFrame {
 		DetailViewBuilder.config(contentPane);
 		DetailViewBuilder.config(this, contentPane, action);
 		
-		JTextField TFname = new JTextField();
+		JTextField TFname = new JTextField(); 
 		JTextField TFcode = new JTextField();
 		JTextField TFtype = new JTextField();
 		JTextField TFptype = new JTextField();
@@ -29,7 +30,7 @@ public class DetailView extends JFrame {
 		JTextField TFscode = new JTextField();
 		
 		JLabel lblNewLabel = new JLabel("Nome :");
-		JLabel lblTipo = new JLabel("Code :");
+		JLabel lblTipo = new JLabel("Code :"); 
 		JLabel lblRecebimentoVia = new JLabel("Recebimento via :");
 		JLabel lblValor = new JLabel("Valor :");
 		JLabel lblTipo_1 = new JLabel("Tipo :");

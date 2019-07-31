@@ -1,7 +1,6 @@
 package com.builder;
 
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Dialog.ModalExclusionType;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -11,12 +10,10 @@ import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 import com.adm.CalendarMT;
@@ -26,7 +23,6 @@ import com.employee.Funcionario;
 import com.handler.Handler;
 import com.schedule.Agenda;
 import com.schedule.CriarAgendaView;
-import com.style.Style;
 import com.view.EditView;
 import com.view.MainView;
 
@@ -44,7 +40,7 @@ public class MainViewBuilder implements ViewBuilder{
         frame.setBackground(Color.WHITE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 485, 521);
-        
+         
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int height = screenSize.height;
         int width = screenSize.width;
@@ -150,7 +146,11 @@ public class MainViewBuilder implements ViewBuilder{
         
         BTadd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                Handler.addViewHandler(funcionarios);   
+                try {
+					Handler.addViewHandler(funcionarios);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}   
             }
         });
 

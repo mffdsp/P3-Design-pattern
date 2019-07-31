@@ -1,38 +1,38 @@
 package com.payroll;
 
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import com.adm.Command;
 import com.adm.Utility;
 import com.employee.Assalariado;
 import com.employee.Comissionado;
+import com.employee.FactoryEmployee;
 import com.employee.Funcionario;
 import com.employee.Horista;
-import com.factory.FactoryEmployee;
 import com.schedule.Agenda;
 import com.schedule.Mensal;
 import com.schedule.Semanal;
-
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Toolkit;
-import javax.swing.JOptionPane;
-import java.awt.Color;
-import java.awt.Dimension;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import javax.swing.JButton;
-import java.awt.SystemColor;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
 
 public class SignUP extends JFrame {
 	
@@ -48,9 +48,9 @@ public class SignUP extends JFrame {
 	boolean sind = false;
 	Utility UT = new Utility();
 	JComboBox CBtype = new JComboBox();
-	JComboBox CBptype = new JComboBox();
+	JComboBox CBptype = new JComboBox();  
 	
-	public void saveValues(Funcionario[] func, int index) {
+	public void saveValues(Funcionario[] func, int index) throws Exception {
 		
 		switch(CBtype.getSelectedItem().toString()) {
 			
@@ -67,13 +67,13 @@ public class SignUP extends JFrame {
 			break;
 		}
 		
-		func[index].setSindicaty(sind);
+		func[index].union.setSindicaty(sind);
 		
 		if(sind) {
 			int indexs = 0;
 			while(indexs < 500) {
 				if(UT.isFree(func, "111" + indexs)) {
-					func[index].setSindicatycode("111" + indexs);
+					func[index].getUnion().setSindicatycode("111" + indexs);
 					break;
 				}indexs += 1;
 			}
@@ -82,9 +82,14 @@ public class SignUP extends JFrame {
 		
 	}
 	
-	public void POPUP(Funcionario[] func, int index) {
+	public void POPUP(Funcionario[] func, int index){
 
-		saveValues(func, index);
+		try {
+			saveValues(func, index);
+		} catch (Exception e1) {
+		
+			e1.printStackTrace();
+		}
 		try {
 			DBsalary = Double.parseDouble(SalaryField.getText());
 			invalidenumber = false;
@@ -97,12 +102,11 @@ public class SignUP extends JFrame {
 					"Preencha todos os campos corretamente!", "ERRO", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
-	//	DBsalary = Double.parseDouble(SalaryField.getText());
 		func[index].setSalary(DBsalary);
 		JOptionPane.showMessageDialog(null ,
 				"Funcionário adicionado com sucesso!", "Feito", JOptionPane.INFORMATION_MESSAGE);
 		
-		if(func[index] instanceof Horista) {
+		if(func[index].getType().equals("Horista")) {
 			((Horista) func[index]).setSalarioBase(Double.parseDouble(SalaryField.getText()));
 			func[index].setSalary(0);
 			func[index].setFrequenciaD(7); 
@@ -111,7 +115,7 @@ public class SignUP extends JFrame {
 			((Semanal)agenda).setDia("Sexta-Feira");
 			func[index].setAgenda(agenda);
 			
-		}if(func[index] instanceof Assalariado) {
+		}if(func[index].getType().equals("Assalariado")) {
 						
 			func[index].setFrequenciaD(10);
 			
@@ -120,7 +124,7 @@ public class SignUP extends JFrame {
 			((Mensal)agenda).setDia(30);
 			func[index].setAgenda(agenda);
 			
-		}if(func[index] instanceof Comissionado) {
+		}if(func[index].getType().equals("Comissionado")) {
 			func[index].setFrequenciaD(6);
 			
 			Agenda agenda = new Semanal();
@@ -148,18 +152,17 @@ public class SignUP extends JFrame {
 	
 	public SignUP(Funcionario[] func, int index) {
 		
-		setResizable(false);
-		setType(Type.UTILITY);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setTitle("Adicionar Funcionário ao Sistema");
-		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.menu);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setForeground(SystemColor.inactiveCaption);
 		setContentPane(contentPane);
 		
-		
+		setResizable(false);
+		setType(Type.UTILITY);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setTitle("Adicionar Funcionário ao Sistema");
+		setBounds(100, 100, 450, 300);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int height = screenSize.height;
 		int width = screenSize.width;
@@ -240,15 +243,12 @@ public class SignUP extends JFrame {
 		});
 		
 		
-		
 		JLabel LBrs = new JLabel("R$");
 		LBrs.setHorizontalAlignment(SwingConstants.LEFT);
 		LBrs.setForeground(Color.BLACK);
 		LBrs.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		LBrs.setBounds(136, 420, 71, 21);
-		contentPane.add(LBrs);
-		
-		
+	
 		JLabel LBtype = new JLabel("Tipo de funcin\u00E1rio:");
 		LBtype.setBounds(28, 196, 202, 21);
 		LBtype.setForeground(Color.BLACK);
@@ -265,13 +265,10 @@ public class SignUP extends JFrame {
 			}
 		});
 		
-		
-		
 		JLabel LBpayt = new JLabel("M\u00E9todo de pagamento:");
 		LBpayt.setBounds(28, 386, 202, 21);
 		LBpayt.setForeground(Color.BLACK);
 		LBpayt.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		
 		
 		CBptype.setBounds(223, 386, 140, 20);
 		CBptype.setModel(new DefaultComboBoxModel(new String[] {"Correios", "Maos", "Conta bancaria"}));
@@ -279,6 +276,40 @@ public class SignUP extends JFrame {
 		JLabel lbimg = new JLabel("");
 		lbimg.setBounds(28, 11, 145, 107);
 		lbimg.setIcon(new ImageIcon(SignUP.class.getResource("/com/payroll/icons/icons8-gest\u00E3o-de-cliente-100.png")));
+	
+		
+		JLabel LBcoinic = new JLabel("");
+		LBcoinic.setIcon(new ImageIcon(SignUP.class.getResource("/com/payroll/icons/icons8-caro-64.png")));
+		LBcoinic.setBounds(28, 279, 106, 107);
+		
+		
+		JLabel LBsindboo = new JLabel("Associa\u00E7\u00E3o Sindical:");
+		LBsindboo.setForeground(Color.BLACK);
+		LBsindboo.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		LBsindboo.setBounds(28, 228, 202, 21);
+		
+		
+		JComboBox CBsindboo = new JComboBox();
+		
+		CBsindboo.setModel(new DefaultComboBoxModel(new String[] {"N\u00C3O", "SIM"}));
+		CBsindboo.setBounds(287, 231, 140, 20);
+	
+		
+		JLabel codeLabel = new JLabel("New label");
+		codeLabel.setForeground(SystemColor.textHighlight);
+		codeLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		codeLabel.setBounds(507, 11, 67, 14);
+		
+		
+		codeLabel.setText("2019" + index); 
+		
+		JLabel ScodeLabel = new JLabel("Código Sindical: ");
+		ScodeLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		ScodeLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		ScodeLabel.setBounds(268, 249, 159, 33);
+		ScodeLabel.setVisible(false);
+		
+		contentPane.add(LBrs);
 		contentPane.setLayout(null);
 		contentPane.add(btnSalvar);
 		contentPane.add(LBadress);
@@ -293,37 +324,10 @@ public class SignUP extends JFrame {
 		contentPane.add(CBptype);
 		contentPane.add(LBtype);
 		contentPane.add(CBtype);
-		
-		JLabel LBcoinic = new JLabel("");
-		LBcoinic.setIcon(new ImageIcon(SignUP.class.getResource("/com/payroll/icons/icons8-caro-64.png")));
-		LBcoinic.setBounds(28, 279, 106, 107);
 		contentPane.add(LBcoinic);
-		
-		JLabel LBsindboo = new JLabel("Associa\u00E7\u00E3o Sindical:");
-		LBsindboo.setForeground(Color.BLACK);
-		LBsindboo.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		LBsindboo.setBounds(28, 228, 202, 21);
 		contentPane.add(LBsindboo);
-		
-		JComboBox CBsindboo = new JComboBox();
-		
-		CBsindboo.setModel(new DefaultComboBoxModel(new String[] {"N\u00C3O", "SIM"}));
-		CBsindboo.setBounds(287, 231, 140, 20);
 		contentPane.add(CBsindboo);
-		
-		JLabel codeLabel = new JLabel("New label");
-		codeLabel.setForeground(SystemColor.textHighlight);
-		codeLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		codeLabel.setBounds(507, 11, 67, 14);
 		contentPane.add(codeLabel);
-		
-		codeLabel.setText("2019" + index); 
-		
-		JLabel ScodeLabel = new JLabel("Código Sindical: ");
-		ScodeLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		ScodeLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		ScodeLabel.setBounds(268, 249, 159, 33);
-		ScodeLabel.setVisible(false);
 		contentPane.add(ScodeLabel);
 
 		CBsindboo.addActionListener(new ActionListener() {

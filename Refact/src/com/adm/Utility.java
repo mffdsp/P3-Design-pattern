@@ -36,7 +36,7 @@ public class Utility {
         int index = 0;
         //2019265
         int pt = codigo.length() - 5;
-        while(i < codigo.length() - 4 )
+        while(i < codigo.length() - 4 ) 
         {
             index += Math.pow(10, pt - i) * Character.getNumericValue(codigo.charAt(i + 4));
             i += 1;
@@ -47,7 +47,7 @@ public class Utility {
 	public boolean isFree(Funcionario[] func, String newScode) {
 		for(int i = 0; i < 500; i++)
 		{
-			if(func[i].getSindicatycode().equals(newScode) && func[i].isSindicaty() && func[i].isSaved())
+			if(func[i].getUnion().getSindicatycode().equals(newScode) && func[i].getUnion().isSindicaty() && func[i].isSaved())
 			{
 				return false;
 			}
@@ -58,7 +58,7 @@ public class Utility {
 	public int findFuncSind(Funcionario[] func, String newScode) {
 		for(int i = 0; i < 500; i++)
 		{
-			if(func[i].getSindicatycode().equals(newScode) && func[i].isSindicaty() && func[i].isSaved())
+			if(func[i].getUnion().getSindicatycode().equals(newScode) && func[i].getUnion().isSindicaty() && func[i].isSaved())
 			{
 				return i;
 			}

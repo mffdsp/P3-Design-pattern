@@ -1,10 +1,15 @@
 package com.view;
 
 
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
 
 import com.adm.Command;
 import com.adm.Utility;
@@ -15,17 +20,6 @@ import com.payroll.BaterPonto;
 import com.payroll.RealEdit;
 import com.payroll.TaxaS;
 import com.schedule.Agenda;
-
-import java.awt.Color;
-import java.awt.Dimension;
-
-import javax.swing.JTextField;
-import java.awt.SystemColor;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
 
 
 public class EditView extends JFrame {
@@ -40,20 +34,20 @@ public class EditView extends JFrame {
 		EditViewBuilder.config(this, action);
 		
 		JPanel contentPane = new JPanel();
-		EditViewBuilder.config(contentPane);
+		EditViewBuilder.config(contentPane); 
 		setContentPane(contentPane);
 		
 		codeField = new JTextField();
 		JButton btnIr = new JButton("IR");
 		
 		codeField.setColumns(10);
-		codeField.setBackground(SystemColor.textHighlightText);
+		codeField.setBackground(SystemColor.textHighlightText); 
 		codeField.setBounds(20, 22, 168, 37);
 		
 		btnIr.setBounds(141, 66, 50, 34);
 		setListener(btnIr, func, action, this, agenda);
 		
-		contentPane.add(btnIr);
+		contentPane.add(btnIr); 
 		contentPane.add(codeField);
 	}
 	

@@ -23,30 +23,6 @@ public class Assalariado extends Funcionario implements Cloneable{
 	 
 	private double psalary = 0;
 	
-		
-	public boolean pagarFuncionario() {
-
-		boolean Uday = false;
-		
-		if(super.agenda instanceof Mensal)
-		{
-			Uday = ( CalendarMT.Adia >= (((Mensal)super.agenda).getDia() - 2) && CalendarMT.weekday.equals("Sexta-Feira") ) ||
-					(CalendarMT.Adia == ((Mensal)super.agenda).getDia() && !CalendarMT.weekday.equals("Domingo")&& !CalendarMT.weekday.equals("Sabado"));
-			
-			setPago(Uday && getFrequenciaD() >= 30);
-
-		}else if(super.agenda instanceof Semanal) {
-
-			setPago(getFrequenciaD() >= ((Semanal)super.agenda).getFrequencia()*7 && CalendarMT.weekday.equals(((Semanal)super.agenda).getDia()));
-		}
-		if(isPago()) {
-			super.frequenciaD = 5;
-			super.setURpago(true);
-		}
-		return isPago();
-
-	}
-
 	public double getPsalary() {
 		return psalary;
 	}

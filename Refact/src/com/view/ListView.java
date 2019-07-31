@@ -3,18 +3,18 @@ package com.view;
 
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.ListSelectionModel;
-import javax.swing.JList;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Cursor;
-
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.CompoundBorder;
 
 import com.builder.ListViewBuilder;
@@ -22,8 +22,6 @@ import com.employee.Assalariado;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.employee.Horista;
-
-import javax.swing.JScrollPane;
 
 public class ListView extends JFrame {
 
@@ -36,7 +34,7 @@ public class ListView extends JFrame {
 		
 		ListViewBuilder.config(this);
 		
-		JPanel contentPane = new JPanel();
+		JPanel contentPane = new JPanel(); 
 		ListViewBuilder.config(contentPane);
 		setContentPane(contentPane);
 		
@@ -48,7 +46,7 @@ public class ListView extends JFrame {
 		JButton BTdetalhar = new JButton("Detalhar");
 		
 		scrollPane.setBounds(135, 11, 385, 244);
-		
+		 
 		scrollPane.setViewportView(hlist);
 		
 		hlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

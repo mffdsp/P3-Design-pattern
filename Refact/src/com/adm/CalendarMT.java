@@ -1,13 +1,8 @@
 package com.adm;
 
-import java.awt.Color;
-
 import javax.swing.JLabel;
 
-import com.employee.Assalariado;
-import com.employee.Comissionado;
 import com.employee.Funcionario;
-import com.employee.Horista;
 
 public class CalendarMT {
 	
@@ -26,7 +21,7 @@ public class CalendarMT {
 		 }
 		 else return Integer.toString(value);
 	 }
-	 
+	  
 	 public static void passHour(Funcionario[] func) {
 		 
 		 int auxiliandinho = Ahora;
@@ -51,10 +46,10 @@ public class CalendarMT {
 	 public static void timeChange(Funcionario[] func){
 		 	
 		 	for(int i = 0; i < 500; i++) {
-    		 func[i].setCheckIN(false);
-    		 func[i].setCheckOUT(false);
+    		 func[i].timecard.setCheckIN(false);
+    		 func[i].timecard.setCheckOUT(false);
     		 func[i].addFrequenciaD(1);
-    		 func[i].setURpago(false);
+    		 func[i].timecard.setURpago(false);
     	     Command.URpago[i] = false;
 				
 	    	}

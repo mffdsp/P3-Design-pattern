@@ -1,7 +1,15 @@
 package com.payroll;
 
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -9,16 +17,6 @@ import com.adm.CalendarMT;
 import com.adm.Command;
 import com.employee.Funcionario;
 import com.employee.Horista;
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import java.awt.Toolkit;
-
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class BaterPonto extends JFrame {
 
@@ -32,8 +30,8 @@ public class BaterPonto extends JFrame {
 		int height = screenSize.height;
 		int width = screenSize.width;
 		setLocation(width/2-getSize().width/2, height/2-getSize().height/2);
-		setTitle("Lançar Cartão de Ponto");
-		contentPane = new JPanel();
+		setTitle("Lançar Cartão de Ponto"); 
+		contentPane = new JPanel(); 
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane); 
@@ -46,11 +44,11 @@ public class BaterPonto extends JFrame {
 		JButton btnENTRADA = new JButton("Registrar Entrada");
 		btnENTRADA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(!func[index].isCheckIN()) {
-				func[index].setCheckIN(true);
+				if(!func[index].getTimeCard().isCheckIN()) {
+				func[index].getTimeCard().setCheckIN(true);
 				JOptionPane.showMessageDialog(null ,
 						"Entrada registrada com sucesso! as " + CalendarMT.Ahora + ":"+  CalendarMT.Aminuto, "Sucesso!", 	JOptionPane.INFORMATION_MESSAGE);
-				func[index].setTimeIN(CalendarMT.Ahora);
+				func[index].getTimeCard().setTimeIN(CalendarMT.Ahora);
 				try {
 					Command.saveS(func);
 				} catch (CloneNotSupportedException e) {
@@ -71,28 +69,25 @@ public class BaterPonto extends JFrame {
 		btnSAIDA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				//Se ainda nao bateu a entrada
-				if(!func[index].isCheckIN()){
+				if(!func[index].getTimeCard().isCheckIN()){
 					JOptionPane.showMessageDialog(null ,"Ponto de entrada ainda não registrado", "Ação Inválida", 
 							JOptionPane.ERROR_MESSAGE); 
 				
-				//Se já bateu entrada e saida
-				}else if(func[index].isCheckIN() && func[index].isCheckOUT()){
+				}else if(func[index].getTimeCard().isCheckIN() && func[index].timecard.isCheckOUT()){
 					JOptionPane.showMessageDialog(null ,"Cartão de Hoje já foi batido com sucesso", "Ação Inválida", 
 					JOptionPane.ERROR_MESSAGE);
 				
-				//Sucesso
 				}else { 
-					func[index].setCheckOUT(true);
-					func[index].setTimeOUT(CalendarMT.Ahora);
-					int value = func[index].getTimeOUT() - func[index].getTimeIN();
+					func[index].getTimeCard().setCheckOUT(true);
+					func[index].getTimeCard().setTimeOUT(CalendarMT.Ahora);
+					int value = func[index].getTimeCard().getTimeOUT() - func[index].getTimeCard().getTimeIN();
 					
 					JOptionPane.showMessageDialog(null ,
 							"Saída registrada com sucesso! as " + CalendarMT.Ahora  + ":" + CalendarMT.Aminuto + 
 							"\nHoras trabalhadas hoje: " + value + "Hrs", "Sucesso!", 	JOptionPane.INFORMATION_MESSAGE);
 					
-					//Caso horista, gera o "adicional", metodo add();
-					if(func[index] instanceof Horista) {
+					if(func[index].getType().equals("Horista")) {
+						
 						((Horista) func[index]).addSalary(value);
 						((Horista) func[index]).setPsalary(func[index].getSalary());
 						JOptionPane.showMessageDialog(null ,
@@ -104,7 +99,6 @@ public class BaterPonto extends JFrame {
 					try {
 						Command.saveS(func);
 					} catch (CloneNotSupportedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					setVisible(false);

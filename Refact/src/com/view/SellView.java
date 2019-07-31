@@ -4,12 +4,10 @@ import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.builder.SellViewBuilder;
-
 import com.employee.Funcionario;
 
 public class SellView extends JFrame {
@@ -27,11 +25,11 @@ public class SellView extends JFrame {
 		JButton BTsave = new JButton("Save");
 		JEditorPane TFobs = new JEditorPane();
 		JTextField TFvalor = new JTextField();
-		JLabel LBtaxa = new JLabel("Valor da Venda:");
+		JLabel LBtaxa = new JLabel("Valor da Venda:");  
 		
 		SellViewBuilder.addBTN(contentPane, BTsave, TFobs, TFvalor, func, index, this);
 		SellViewBuilder.addLBL(contentPane, LBtaxa);
-		
+		 
 	}
 
 }

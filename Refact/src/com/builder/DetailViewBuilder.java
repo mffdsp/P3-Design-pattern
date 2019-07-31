@@ -5,22 +5,15 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import com.adm.Command;
-import com.adm.Utility;
 import com.employee.Assalariado;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
@@ -29,7 +22,6 @@ import com.schedule.Mensal;
 import com.schedule.Semanal;
 import com.view.DetailView;
 import com.view.MainView;
-import com.view.SellView;
 
 public class DetailViewBuilder {
 	
@@ -42,7 +34,7 @@ public class DetailViewBuilder {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		frame.setContentPane(contentPane);
 		int height = screenSize.height;
-		int width = screenSize.width;
+		int width = screenSize.width; 
 		if(action == 1) {
 			frame.setLocation(width/2-frame.getSize().width/2 - 260, height/2-frame.getSize().height/2);
 		}else frame.setLocation(width/2-frame.getSize().width/2, height/2-frame.getSize().height/2);
@@ -119,8 +111,8 @@ public class DetailViewBuilder {
 	    TFscode.setBounds(155, 266, 86, 25);
 	    contentPane.add(TFscode);
 	    
-	    if(func.isSindicaty()) {
-	    	TFscode.setText(func.getSindicatycode());
+	    if(func.getUnion().isSindicaty()) {
+	    	TFscode.setText(func.getUnion().getSindicatycode());
 	    }else TFscode.setText("Não associado"); 
 	    
 	    contentPane.add(TFsalary);

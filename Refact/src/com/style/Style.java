@@ -39,7 +39,7 @@ public class Style{
 	        BTvenda.setBackground(Color.WHITE);
 	        BTlist.setBackground(Color.WHITE);
 	        BTtaxa.setBackground(Color.WHITE);
-	        BTagenda.setBackground(Color.WHITE);
+	        BTagenda.setBackground(Color.WHITE); 
 	        BTfolha.setBackground(Color.WHITE);
 	        
 	        BTlist.setForeground(Color.WHITE);   

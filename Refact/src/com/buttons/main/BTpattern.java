@@ -12,7 +12,7 @@ import com.view.MainView;
 
 public class BTpattern{
 		
-	public void addBT(JButton BT, JPanel cp, int x, int y, String size, String rc, String msg) {
+	public void addBT(JButton BT, JPanel cp, int x, int y, String size, String rc, String msg) throws Exception {
 			
 		BT.setIcon(new ImageIcon(MainView.class.getResource(rc)));
 	    BT.setToolTipText(msg);
@@ -40,7 +40,7 @@ public class BTpattern{
 	    styleBT(BT, cp);
 	}
 
-	public void styleBT(JButton BT, JPanel cp) {
+	public void styleBT(JButton BT, JPanel cp) throws Exception {
 		
         BT.setBackground(Color.WHITE);
         BT.setForeground(Color.WHITE);

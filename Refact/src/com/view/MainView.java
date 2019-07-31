@@ -1,6 +1,5 @@
 package com.view;
 
-import com.buttons.main.*;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,6 +10,7 @@ import com.adm.CalendarMT;
 import com.adm.Command;
 import com.adm.Utility;
 import com.builder.MainViewBuilder;
+import com.buttons.main.BTpattern;
 import com.employee.Funcionario;
 import com.schedule.Agenda;
 import com.style.Style;
@@ -29,7 +29,7 @@ public class MainView extends JFrame{
 	   Style mainStyle = new Style();
 	   mainStyle.setStyle();
 		
-	}
+	} 
 	
 	public MainView() throws CloneNotSupportedException {
 					
@@ -37,7 +37,7 @@ public class MainView extends JFrame{
 		mainScreen.config(this);
 		
 		contentPane = new JPanel();
-		mainScreen.config(contentPane);
+		mainScreen.config(contentPane); 
 		setContentPane(contentPane);
 
 		JLabel texto = new JLabel("Sistema de Folha de pagamento v. Refatorada");

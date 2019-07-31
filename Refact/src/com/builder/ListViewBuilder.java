@@ -9,7 +9,6 @@ import java.awt.Window.Type;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import com.view.ListView;
 import com.view.MainView;
@@ -24,7 +23,7 @@ public class ListViewBuilder {
 		frame.setTitle("Lista de funcionários adicionados ao sistema");
 		frame.setBounds(100, 100, 545, 335);
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(MainView.class.getResource("/com/payroll/icons/APPICON.png")));
-		
+		 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int height = screenSize.height;
 		int width = screenSize.width;

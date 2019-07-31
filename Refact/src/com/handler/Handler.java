@@ -22,7 +22,7 @@ public class Handler {
 		DefaultListModel DLMA = new DefaultListModel();
 		DefaultListModel DLMC = new DefaultListModel();
 		DefaultListModel DLMH = new DefaultListModel();
-		try {
+		try { 
 			UT.setList(funcionarios, DLMC, DLMA, DLMH);
 		}
 		catch(NullPointerException e) {
@@ -38,7 +38,7 @@ public class Handler {
 		new ListView(DLMA, DLMC, DLMH, funcionarios).setVisible(true);
 	}
 	
-	public void addViewHandler(Funcionario[] funcionarios) {
+	public void addViewHandler(Funcionario[] funcionarios)  throws Exception{
 		
 		MainView.index = UT.findIndex(funcionarios);
 		funcionarios[MainView.index] = new Horista(null, null, null, null, null);
