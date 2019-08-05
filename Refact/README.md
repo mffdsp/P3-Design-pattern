@@ -1,6 +1,6 @@
 # P3-Refact
 
-## Patterns aplicados
+## design pattern
 
 - Factory Method <img src="icon/iconS.png" align = "right" >
 
