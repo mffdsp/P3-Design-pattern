@@ -1,5 +1,13 @@
 # P3-Refact
 
+## Patterns aplicados
+
+- Factory Method <img src="icon/iconS.png" align = "right" >
+
+- Memento <img src="icon/iconN.png" align = "right" >
+
+- Command <img src="icon/iconN.png" align = "right" >
+
 
 ## View
 
