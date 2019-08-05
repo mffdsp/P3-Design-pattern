@@ -12,7 +12,7 @@ public class TimeCard extends Check{
 		return frequenciaD;
 	}
 	public void setFrequenciaD(int frequenciaD) {
-		this.frequenciaD = frequenciaD;
+		this.frequenciaD = frequenciaD; 
 	}
 	public boolean isPago() {
 		return pago;

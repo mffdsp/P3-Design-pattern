@@ -20,7 +20,7 @@ public class Style{
 	            }
 	        }
 	    } catch (Exception ex) {
-	       System.err.println(ex);
+	       System.err.println(ex); 
 	    }
 	    
 		try {
@@ -32,13 +32,14 @@ public class Style{
 	}
 	
 	public void setGround(String type, JButton BTfolha, JButton BTagenda, JButton BTvenda, JButton BTtaxa, JButton BTponto, JButton BTedit, JButton BTremove, JButton BTadd, JButton BTlist) {
+		
 		if(type.equals("WHITE")) {
 			
 	        BTremove.setBackground(Color.WHITE);
 	        BTedit.setBackground(Color.WHITE);
 	        BTvenda.setBackground(Color.WHITE);
 	        BTlist.setBackground(Color.WHITE);
-	        BTtaxa.setBackground(Color.WHITE);
+	        BTtaxa.setBackground(Color.WHITE); 
 	        BTagenda.setBackground(Color.WHITE); 
 	        BTfolha.setBackground(Color.WHITE);
 	        
@@ -62,15 +63,16 @@ public class Style{
 	        BTedit.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 17));
 	        BTremove.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 17));
 	       
-		}else System.err.print("erro");
+		}else System.err.print("type_error");
 	}
 	
 	public void setGround(String type, JButton BTatthora) {
+		
 		if(type.equals("CAPTION")) {
 			
 			BTatthora.setForeground(SystemColor.inactiveCaption);
 			BTatthora.setBackground(SystemColor.activeCaption);
 			
-		}else System.err.print("erro");
+		}else System.err.print("type_error");
 	}
 }

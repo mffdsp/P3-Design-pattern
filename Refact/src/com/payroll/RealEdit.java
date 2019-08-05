@@ -20,14 +20,16 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 
-import com.adm.Command;
 import com.adm.Utility;
 import com.builder.RealEditBuilder;
 import com.employee.Comissionado;
-import com.employee.FactoryEmployee;
 import com.employee.Funcionario;
 import com.employee.Horista;
+import com.factoryPattern.FactoryEmployee;
+import com.factoryPattern.FactorySchedule;
 import com.label.LBpattern;
+import com.memento.Command;
+import com.memento.Memento;
 import com.schedule.Agenda;
 import com.schedule.Mensal;
 import com.schedule.Semanal;
@@ -44,7 +46,7 @@ public class RealEdit extends JFrame {
 		
 		JPanel contentPane = new JPanel();
 		RealEditBuilder buildScreen = new RealEditBuilder();
-		LBpattern lbpattern = new LBpattern();
+		LBpattern lbpattern = new LBpattern(); 
 		
 		custom = func[index].isCustom();
 		
@@ -74,7 +76,7 @@ public class RealEdit extends JFrame {
 		JTextField TFname = new JTextField();
 		JTextField TFcomi = new JTextField();
 		JTextField TFscode = new JTextField();
-		
+		 
 		JButton BTsave = new JButton("Salvar");
 		JButton TFcustom = new JButton("Custom Schedule");
 		
@@ -271,8 +273,9 @@ public class RealEdit extends JFrame {
 		}
 		//ENDOFTRY CATCH, BEFORE SAVING
 		//Se não há erro, peço confirmação
-
-		Agenda nocustom = new Agenda(); 
+		
+		FactorySchedule factorySchedule = new FactorySchedule();
+		
 		int dialogButton = JOptionPane.YES_NO_OPTION;
 		int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja salvar as informações?", "Confirmação", dialogButton);
 		if(!(dialogResult == JOptionPane.YES_OPTION) ){
@@ -290,7 +293,8 @@ public class RealEdit extends JFrame {
 				func[index] = FactoryEmployee.getEmployee("A", SVname, SVadress, "Assalariado", SVmetodo , SVcode);
 				func[index].setType("Assalariado");
 
-				nocustom = new Mensal();
+				Agenda nocustom = factorySchedule.getSchedule("Mensal", "30", 1);
+				
 				((Mensal)nocustom).setDia(30);
 				nocustom.setFrequencia(1);
 				func[index].setAgenda(nocustom);
@@ -300,7 +304,8 @@ public class RealEdit extends JFrame {
 				func[index] = FactoryEmployee.getEmployee("H", SVname, SVadress, "Horista", SVmetodo , SVcode);
 				func[index].setType("Horista");
 				
-				nocustom = new Semanal();
+				Agenda nocustom = factorySchedule.getSchedule("Semanal", "Sexta-Feira", 1);
+				
 				((Semanal)nocustom).setDia("Sexta-Feira");
 				nocustom.setFrequencia(1);
 				func[index].setAgenda(nocustom);
@@ -310,7 +315,7 @@ public class RealEdit extends JFrame {
 				func[index] = FactoryEmployee.getEmployee("C", SVname, SVadress, "Comissionado", SVmetodo , SVcode);
 				func[index].setType("Comissionado");
 				
-				nocustom = new Semanal();
+				Agenda nocustom = factorySchedule.getSchedule("Semanal", "Sexta-Feira", 2);
 
 				((Semanal)nocustom).setDia("Sexta-Feira");
 				nocustom.setFrequencia(2);
@@ -367,7 +372,7 @@ public class RealEdit extends JFrame {
 		func[index].setSaved(true);
 		
 		Command.URpago[index] = false;	
-			Command.saveS(func);
+		Memento.saveState(func); 
 		} catch(Exception ex) {
 			System.err.println(ex);
 		}

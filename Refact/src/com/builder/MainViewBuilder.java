@@ -17,10 +17,10 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 import com.adm.CalendarMT;
-import com.adm.Command;
 import com.adm.Utility;
 import com.employee.Funcionario;
 import com.handler.Handler;
+import com.memento.Command;
 import com.schedule.Agenda;
 import com.schedule.CriarAgendaView;
 import com.view.EditView;
@@ -32,7 +32,7 @@ public class MainViewBuilder implements ViewBuilder{
     public void config(MainView frame) {
         
         frame.setModalExclusionType(ModalExclusionType.TOOLKIT_EXCLUDE);
-        frame.setType(Type.NORMAL);
+        frame.setType(Type.NORMAL); 
         frame.setTitle("FolhaDePagamento");
         frame.setResizable(false);
         frame.setForeground(UIManager.getColor("textHighlight"));
@@ -42,7 +42,7 @@ public class MainViewBuilder implements ViewBuilder{
         frame.setBounds(100, 100, 485, 521);
          
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int height = screenSize.height;
+        int height = screenSize.height; 
         int width = screenSize.width;
         frame.setSize(813, 517);
         frame.setLocation(width/2-frame.getSize().width/2, height/2-frame.getSize().height/2);

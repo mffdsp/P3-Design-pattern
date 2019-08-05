@@ -23,13 +23,14 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import com.adm.Command;
 import com.adm.Utility;
-import com.employee.Assalariado;
 import com.employee.Comissionado;
-import com.employee.FactoryEmployee;
 import com.employee.Funcionario;
 import com.employee.Horista;
+import com.factoryPattern.FactoryEmployee;
+import com.factoryPattern.FactorySchedule;
+import com.memento.Command;
+import com.memento.Memento;
 import com.schedule.Agenda;
 import com.schedule.Mensal;
 import com.schedule.Semanal;
@@ -47,12 +48,12 @@ public class SignUP extends JFrame {
 	private JLabel errotext;
 	boolean sind = false;
 	Utility UT = new Utility();
-	JComboBox CBtype = new JComboBox();
+	JComboBox CBtype = new JComboBox(); 
 	JComboBox CBptype = new JComboBox();  
 	
 	public void saveValues(Funcionario[] func, int index) throws Exception {
 		
-		switch(CBtype.getSelectedItem().toString()) {
+		switch(CBtype.getSelectedItem().toString()) { 
 			
 		case "Assalariado":
 			func[index] = FactoryEmployee.getEmployee("A", NameField.getText(), AdressField.getText(), CBtype.getSelectedItem().toString(), CBptype.getSelectedItem().toString(), "2019" + index );
@@ -83,7 +84,9 @@ public class SignUP extends JFrame {
 	}
 	
 	public void POPUP(Funcionario[] func, int index){
-
+		
+		FactorySchedule factorySchedule = new FactorySchedule();
+		
 		try {
 			saveValues(func, index);
 		} catch (Exception e1) {
@@ -110,26 +113,22 @@ public class SignUP extends JFrame {
 			((Horista) func[index]).setSalarioBase(Double.parseDouble(SalaryField.getText()));
 			func[index].setSalary(0);
 			func[index].setFrequenciaD(7); 
-			Agenda agenda = new Semanal();
-			agenda.setFrequencia(1);
-			((Semanal)agenda).setDia("Sexta-Feira");
+			
+			Agenda agenda = factorySchedule.getSchedule("Semanal", "Sexta-Feira", 1);
 			func[index].setAgenda(agenda);
 			
 		}if(func[index].getType().equals("Assalariado")) {
 						
 			func[index].setFrequenciaD(10);
 			
-			Agenda agenda = new Mensal();
-			agenda.setFrequencia(1);
-			((Mensal)agenda).setDia(30);
+			Agenda agenda = factorySchedule.getSchedule("Mensal", "30", 1);
 			func[index].setAgenda(agenda);
 			
 		}if(func[index].getType().equals("Comissionado")) {
 			func[index].setFrequenciaD(6);
 			
-			Agenda agenda = new Semanal();
-			agenda.setFrequencia(2);
-			((Semanal)agenda).setDia("Sexta-Feira");
+			Agenda agenda = factorySchedule.getSchedule("Semanal", "Sexta-Feira", 2);
+			
 			func[index].setAgenda(agenda);
 			
 			((Comissionado)func[index]).setPVenda(15);
@@ -140,7 +139,7 @@ public class SignUP extends JFrame {
 		Command.URpago[index] = false;
 		func[index].setSaved(true);
 		try {
-			Command.saveS(func);
+			Memento.saveState(func); 
 		} catch (CloneNotSupportedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

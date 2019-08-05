@@ -6,9 +6,10 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import com.adm.Command;
 import com.builder.PayViewBuilder;
 import com.employee.Funcionario;
+import com.memento.Command;
+import com.memento.Memento;
 
 public class PayView extends JFrame {
 
@@ -19,7 +20,7 @@ public class PayView extends JFrame {
 		
 		PayViewBuilder PayViewBuilder = new PayViewBuilder();
 		PayViewBuilder.config(this, contentPane);
-		Command.saveS(func); 
+		Memento.saveState(func); 
 		
 		PayViewBuilder.config(contentPane);
 		
@@ -35,4 +36,4 @@ public class PayView extends JFrame {
 		PayViewBuilder.addSCL(contentPane, scrollPane, hlist, DLMA, DLMC, DLMH);
 		
 	}
-}
+} 

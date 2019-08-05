@@ -8,9 +8,9 @@ public class Agenda implements Cloneable{
 	private int frequencia = 0; 
 	private int index = 0;
 	private boolean saved = false;
-	
+	 
 	public int getFrequencia() {
-		return frequencia;
+		return frequencia; 
 	}
 
 	public void setFrequencia(int frequencia) {

@@ -36,7 +36,7 @@ public class ListView extends JFrame {
 		
 		JPanel contentPane = new JPanel(); 
 		ListViewBuilder.config(contentPane);
-		setContentPane(contentPane);
+		setContentPane(contentPane); 
 		
 		JScrollPane scrollPane = new JScrollPane();
 		JList hlist = new JList();

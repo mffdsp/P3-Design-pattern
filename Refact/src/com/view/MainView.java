@@ -7,11 +7,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.adm.CalendarMT;
-import com.adm.Command;
 import com.adm.Utility;
 import com.builder.MainViewBuilder;
 import com.buttons.main.BTpattern;
 import com.employee.Funcionario;
+import com.memento.Command;
+import com.memento.Memento;
 import com.schedule.Agenda;
 import com.style.Style;
 
@@ -27,7 +28,7 @@ public class MainView extends JFrame{
 	public static void main(String[] args) {
 		
 	   Style mainStyle = new Style();
-	   mainStyle.setStyle();
+	   mainStyle.setStyle(); 
 		
 	} 
 	
@@ -39,7 +40,7 @@ public class MainView extends JFrame{
 		contentPane = new JPanel();
 		mainScreen.config(contentPane); 
 		setContentPane(contentPane);
-
+ 
 		JLabel texto = new JLabel("Sistema de Folha de pagamento v. Refatorada");
 		JLabel LBadd = new JLabel("Adicionar Funcion\u00E1rio");
 		JLabel LBremove = new JLabel("Remover Funcion\u00E1rio");
@@ -71,7 +72,7 @@ public class MainView extends JFrame{
 		JButton BTagenda = new JButton();
 		JButton BTfolha = new JButton();
 		JButton BTattdia = new JButton();
-		
+		  
 		try {
 			mainScreen.addLBL(contentPane, texto, LBadd, LBremove, LBedit, LBlist, background, LBdata, LBhora, LBcartao, LBtaxa, LBagenda, LBvenda, label_1, LBfolha, LBsemana, LBur);
 			
@@ -93,7 +94,7 @@ public class MainView extends JFrame{
 		
 			Funcionario[] funcionarios = new Funcionario[500];	
 			UT.setALL(funcionarios, agenda);
-			Command.saveS(funcionarios);
+			Memento.saveState(funcionarios);
 				
 			CalendarMT.clock(LBdata, LBhora, LBsemana, funcionarios);
 				

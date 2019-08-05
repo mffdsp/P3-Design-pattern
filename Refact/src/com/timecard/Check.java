@@ -15,7 +15,7 @@ public class Check {
 		return checkOUT;
 	}
 	public void setCheckOUT(boolean checkOUT) {
-		this.checkOUT = checkOUT;
+		this.checkOUT = checkOUT; 
 	}
 	
 	

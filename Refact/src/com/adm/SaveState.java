@@ -9,9 +9,9 @@ import com.schedule.Semanal;
 
 public class SaveState{
 
-	protected Funcionario funcionariosSAVE = new Horista(null, null, null , null, null);
-	protected Agenda agendasSAVE = new Agenda();
+	public Funcionario funcionariosSAVE = new Horista(null, null, null , null, null);
+	public Agenda agendasSAVE = new Agenda();
 	protected boolean URpago = false;
-	protected boolean payboo = false;
-
+	public boolean payboo = false;
+ 
 }

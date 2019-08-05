@@ -1,6 +1,7 @@
 package com.employee;
 
 import com.adm.CalendarMT;
+import com.factoryPattern.FactorySchedule;
 import com.schedule.Agenda;
 import com.schedule.Mensal;
 import com.schedule.Semanal;
@@ -21,20 +22,8 @@ public abstract class Funcionario extends Signature implements Cloneable{
 	public Agenda agenda = new Agenda();
 	
 	public void setAgenda(Agenda agenda) {
+		this.agenda = agenda;
 		
-		if(agenda instanceof Mensal) {
-			 
-			this.agenda = new Mensal();
-			this.agenda.setFrequencia(agenda.getFrequencia());
-			((Mensal)this.agenda).setDia(((Mensal) agenda).getDia()); 
-			
-		}
-		if(agenda instanceof Semanal) {
-			
-			this.agenda = new Semanal();
-			this.agenda.setFrequencia(agenda.getFrequencia());
-			((Semanal)this.agenda).setDia((((Semanal) agenda).getDia()));
-		}
 	}
 	
 	public boolean pagarFuncionario() {

@@ -11,11 +11,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.adm.Command;
 import com.adm.Utility;
 import com.builder.EditViewBuilder;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
+import com.memento.Command;
+import com.memento.Memento;
 import com.payroll.BaterPonto;
 import com.payroll.RealEdit;
 import com.payroll.TaxaS;
@@ -49,7 +50,7 @@ public class EditView extends JFrame {
 		
 		contentPane.add(btnIr); 
 		contentPane.add(codeField);
-	}
+	} 
 	
 	static void setListener(JButton btnIr, Funcionario[] func, String action, EditView frame, Agenda[] agenda){
 		
@@ -107,7 +108,7 @@ public class EditView extends JFrame {
 				JOptionPane.showMessageDialog(null ,
 				"Funcionário removido com sucesso", "Remover", JOptionPane.INFORMATION_MESSAGE);
 				try {
-					Command.saveS(func);
+					Memento.saveState(func); 
 				} catch (CloneNotSupportedException e1) {
 					e1.printStackTrace();
 				}

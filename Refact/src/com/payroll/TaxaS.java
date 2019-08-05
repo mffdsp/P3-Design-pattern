@@ -1,4 +1,4 @@
-package com.payroll;
+ package com.payroll;
 
 
 import java.awt.Font;
@@ -15,13 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import com.adm.Command;
 import com.adm.Utility;
 import com.builder.TaxaViewBuilder;
 import com.employee.Assalariado;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.employee.Horista;
+import com.memento.Command;
+import com.memento.Memento;
 
 public class TaxaS extends JFrame {
 	
@@ -102,7 +103,7 @@ public class TaxaS extends JFrame {
 				JOptionPane.showMessageDialog(null ,
 						"Taxa debitada com sucesso à: \n"
 						+ func[index].getName() + "\nCódigo Sindical: " + func[index].union.getSindicatycode(), "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
-				Command.saveS(func);
+				Memento.saveState(func); 
 				setVisible(false);
 						
 

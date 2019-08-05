@@ -24,7 +24,7 @@ public class SellView extends JFrame {
 		
 		JButton BTsave = new JButton("Save");
 		JEditorPane TFobs = new JEditorPane();
-		JTextField TFvalor = new JTextField();
+		JTextField TFvalor = new JTextField(); 
 		JLabel LBtaxa = new JLabel("Valor da Venda:");  
 		
 		SellViewBuilder.addBTN(contentPane, BTsave, TFobs, TFvalor, func, index, this);

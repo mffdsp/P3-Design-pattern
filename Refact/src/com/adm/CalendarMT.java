@@ -3,6 +3,7 @@ package com.adm;
 import javax.swing.JLabel;
 
 import com.employee.Funcionario;
+import com.memento.Command;
 
 public class CalendarMT {
 	
@@ -12,7 +13,7 @@ public class CalendarMT {
 	 public static int Ames = 6;
 	 public static int Aano = 2019;
 	 public static boolean[] payboo =  new boolean[500];
-	 public static int DAYSGONE = 0;
+	 public static int DAYSGONE = 0; 
 	 public static String weekday = "Domingo";
 	
 	 public static String valueToString(int value) {

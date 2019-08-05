@@ -1,34 +1,33 @@
 package com.schedule;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import com.adm.Command;
-import com.employee.Funcionario;
-import com.view.MainView;
-
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
-import java.awt.Font;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import java.awt.Cursor;
-import java.awt.Dimension;
+import com.employee.Funcionario;
+import com.factoryPattern.FactorySchedule;
+import com.memento.Command;
+import com.view.MainView;
 
 public class CriarAgendaView extends JFrame {
 
 	private JPanel contentPane;
 	
-	public CriarAgendaView(Agenda[] agenda, Funcionario[]func) {
+	public CriarAgendaView(Agenda[] agenda, Funcionario[]func){
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 277, 226);
@@ -36,10 +35,10 @@ public class CriarAgendaView extends JFrame {
 		int height = screenSize.height;
 		int width = screenSize.width;
 		setLocation(width/2-getSize().width/2, height/2-getSize().height/2);
-		setTitle("Criar Agenda");
+		setTitle("Criar Agenda"); 
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainView.class.getResource("/com/payroll/icons/APPICON.png")));
-		
+		 
 		
 		
 		contentPane = new JPanel();
@@ -65,7 +64,7 @@ public class CriarAgendaView extends JFrame {
 		contentPane.add(lblFrequencia);
 		
 		JComboBox comboBox_s = new JComboBox();
-		comboBox_s.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
+		comboBox_s.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"})); 
 		comboBox_s.setSelectedIndex(0);
 		comboBox_s.setBounds(170, 71, 48, 20);
 		contentPane.add(comboBox_s);
@@ -126,33 +125,30 @@ public class CriarAgendaView extends JFrame {
 		
 		
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e){
 				
-				if(comboBox.getSelectedItem().toString().equals("Semanal")) {
-					agenda[Command.AgendaIndex] = new Semanal();
-					agenda[Command.AgendaIndex].setFrequencia(Integer.parseInt(comboBox_s.getSelectedItem().toString()));
-					((Semanal) agenda[Command.AgendaIndex]).setDia(comboBox_ds.getSelectedItem().toString());
-					JOptionPane.showMessageDialog(null ,
-							"Agenda definida como:\n" + ((Semanal) agenda[Command.AgendaIndex]).toString() , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-					agenda[Command.AgendaIndex].setSaved(true);
-					setVisible(false);
-					
-					
-					
+				FactorySchedule factorySchedule = new FactorySchedule();
+				
+				String type = comboBox.getSelectedItem().toString();
+				String day = null;
+				
+				int frequency = Integer.parseInt(comboBox_s.getSelectedItem().toString());
+				
+				if(type.equals("Semanal")) {
+					day = comboBox_ds.getSelectedItem().toString();
 				}else {
-						agenda[Command.AgendaIndex] = new Mensal();
-						((Mensal) agenda[Command.AgendaIndex]).setDia(Integer.parseInt(comboBox_m.getSelectedItem().toString()));
-						JOptionPane.showMessageDialog(null ,
-								"Agenda definida como:\n" + ((Mensal) agenda[Command.AgendaIndex]).toString() , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-						agenda[Command.AgendaIndex].setSaved(true);
-						setVisible(false);
-					try {
-						Command.saveS(func);
-					} catch (CloneNotSupportedException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+					day = comboBox_m.getSelectedItem().toString();
+					frequency = 1;
 				}
+						
+				agenda[Command.AgendaIndex] = factorySchedule.getSchedule(type, day, frequency);
+				String msg = factorySchedule.toString(agenda[Command.AgendaIndex]);
+				
+				JOptionPane.showMessageDialog(null ,
+						"Agenda definida como:\n" + msg , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+				setVisible(false);		
+					
 				Command.AgendaIndex += 1; 
 				
 			}

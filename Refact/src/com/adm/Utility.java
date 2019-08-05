@@ -12,6 +12,7 @@ import com.employee.Assalariado;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.employee.Horista;
+import com.memento.Command;
 import com.schedule.Agenda;
 import com.schedule.Semanal;
 import com.view.MainView;
@@ -22,7 +23,7 @@ public class Utility {
 	public int findIndex(Funcionario[] func) {
 		for(int i = 0; i < 500; i++)
 		{
-			if(!func[i].isSaved())
+			if(!func[i].isSaved()) 
 			{
 				return i;
 			}
@@ -33,7 +34,7 @@ public class Utility {
 	 
 	public int getIndex(String codigo){
         int i = 0;
-        int index = 0;
+        int index = 0; 
         //2019265
         int pt = codigo.length() - 5;
         while(i < codigo.length() - 4 ) 

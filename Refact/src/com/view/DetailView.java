@@ -24,7 +24,7 @@ public class DetailView extends JFrame {
 		JTextField TFname = new JTextField(); 
 		JTextField TFcode = new JTextField();
 		JTextField TFtype = new JTextField();
-		JTextField TFptype = new JTextField();
+		JTextField TFptype = new JTextField(); 
 		JTextField TFsalary = new JTextField();
 		JTextField TFcustom = new JTextField();
 		JTextField TFscode = new JTextField();
