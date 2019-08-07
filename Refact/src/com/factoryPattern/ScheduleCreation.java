@@ -4,6 +4,6 @@ import com.schedule.Agenda;
 
 public interface ScheduleCreation {
 	
-	 public Agenda getSchedule(String type, String day, int frequency);
+	  public Agenda getSchedule(String type, String day, int frequency);
 	 
 }

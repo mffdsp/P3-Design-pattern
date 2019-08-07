@@ -306,8 +306,6 @@ public class RealEdit extends JFrame {
 				
 				Agenda nocustom = factorySchedule.getSchedule("Semanal", "Sexta-Feira", 1);
 				
-				((Semanal)nocustom).setDia("Sexta-Feira");
-				nocustom.setFrequencia(1);
 				func[index].setAgenda(nocustom);
 				
 			}else if(CBtipo.getSelectedItem().toString().equals("Comissionado") && !custom ) {

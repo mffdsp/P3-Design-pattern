@@ -2,7 +2,7 @@ package com.schedule;
 
 import com.employee.Assalariado;
 
-public class Agenda implements Cloneable{
+public class Agenda implements Cloneable, SchedulePlan{
 	
 	 
 	private int frequencia = 0; 

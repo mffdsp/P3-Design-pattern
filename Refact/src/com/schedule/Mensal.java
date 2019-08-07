@@ -2,9 +2,10 @@ package com.schedule;
 
 import com.employee.Assalariado;
 
-public class Mensal extends Agenda implements Cloneable{
+public class Mensal extends Agenda implements Cloneable, ScheduleBuilder{
 	
 	private int dia = 0;
+	private Agenda Schedule;
 	
 	public Mensal(String day, int frequency) {
 		
@@ -18,7 +19,6 @@ public class Mensal extends Agenda implements Cloneable{
 	} 
 	
 
-	
 	@Override
 	public String toString() {
 		return "Mensal - " + dia;
@@ -28,7 +28,33 @@ public class Mensal extends Agenda implements Cloneable{
 		return dia;
 	}
 
-	public void setDia(int dia) {
+	public void setDia(int dia){
 		this.dia = dia; 
+	}
+
+	public void MensalBuilder(){ 
+		this.Schedule = new Agenda(); 
+	} 
+
+	public void buildFrequencia(int frequency) {
+
+		Schedule.setFrequencia(frequency);
+
+	}
+
+	public void buildIndex(int index) {
+
+		Schedule.setIndex(index);
+
+	}
+
+	public void buildSaved(boolean saved) {
+
+		Schedule.setSaved(saved);
+	}
+
+	public Agenda getSchedule() {
+
+		return this.Schedule;
 	}
 }

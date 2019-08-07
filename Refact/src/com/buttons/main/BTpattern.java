@@ -6,8 +6,11 @@ import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.employee.Funcionario;
+import com.schedule.Agenda;
 import com.view.MainView;
 
 public class BTpattern{
@@ -48,6 +51,11 @@ public class BTpattern{
         
         cp.add(BT);
         
+	}
+	
+	public void Command(JButton BT, Funcionario[] funcionarios, Agenda[] agendas, JLabel LBdata, JLabel LBhora, String COMMAND) {
+		
+		new Execute().execute(COMMAND, BT, funcionarios, agendas, LBdata, LBhora);
 	}
 	
 }

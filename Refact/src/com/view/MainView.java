@@ -10,8 +10,8 @@ import com.adm.CalendarMT;
 import com.adm.Utility;
 import com.builder.MainViewBuilder;
 import com.buttons.main.BTpattern;
+import com.buttons.main.Execute;
 import com.employee.Funcionario;
-import com.memento.Command;
 import com.memento.Memento;
 import com.schedule.Agenda;
 import com.style.Style;
@@ -34,7 +34,7 @@ public class MainView extends JFrame{
 	
 	public MainView() throws CloneNotSupportedException {
 					
-		MainViewBuilder mainScreen = new MainViewBuilder();
+		MainViewBuilder mainScreen = new MainViewBuilder(); 
 		mainScreen.config(this);
 		
 		contentPane = new JPanel();
@@ -98,8 +98,21 @@ public class MainView extends JFrame{
 				
 			CalendarMT.clock(LBdata, LBhora, LBsemana, funcionarios);
 				
-			mainScreen.actionBTN(funcionarios, agenda, UT, BTedit, BTremove, BTlist, BTadd, BTatthora, UndoBTN, RedoBTN, BTponto, BTtaxa, BTvenda, BTagenda, BTfolha, BTattdia, LBdata, LBhora);
-				
+			BTpattern.Command(BTadd, funcionarios, agenda, LBdata, LBhora, "BTadd");
+			BTpattern.Command(BTedit, funcionarios, agenda, LBdata, LBhora, "BTedit");
+			BTpattern.Command(BTremove, funcionarios, agenda, LBdata, LBhora, "BTremove");
+			BTpattern.Command(BTatthora, funcionarios, agenda, LBdata, LBhora, "BTatthora");
+			BTpattern.Command(BTtaxa, funcionarios, agenda, LBdata, LBhora, "BTagenda");
+			BTpattern.Command(BTagenda, funcionarios, agenda, LBdata, LBhora, "BTagenda");
+			BTpattern.Command(BTfolha, funcionarios, agenda, LBdata, LBhora, "BTfolha");
+			BTpattern.Command(BTattdia, funcionarios, agenda, LBdata, LBhora, "BTattdia");
+			BTpattern.Command(UndoBTN, funcionarios, agenda, LBdata, LBhora, "UndoBTN");
+			BTpattern.Command(RedoBTN, funcionarios, agenda, LBdata, LBhora, "RedoBTN");
+			BTpattern.Command(BTvenda, funcionarios, agenda, LBdata, LBhora, "BTvenda");
+			BTpattern.Command(BTlist, funcionarios, agenda, LBdata, LBhora, "BTlist");
+			BTpattern.Command(BTponto, funcionarios, agenda, LBdata, LBhora, "BTponto");
+
+			
 			UT.UR(LBur, UndoBTN, RedoBTN);
 		}
 		catch(Exception e) {
