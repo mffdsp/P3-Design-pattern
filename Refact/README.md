@@ -10,7 +10,7 @@
 
 
 
--->
+<!--
 ## View
 
 - DetailView <img src="icon/iconS.png" align = "right" >
@@ -32,4 +32,4 @@
 ## Schedule
 
 - Schedule - SignUP <img src="icon/iconN.png" align = "right" >
-<-!--
+-->
