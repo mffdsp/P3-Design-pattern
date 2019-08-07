@@ -4,11 +4,13 @@
 
 - Factory Method <img src="icon/iconS.png" align = "right" >
 
+- Command <img src="icon/iconS.png" align = "right" >
+
 - Memento <img src="icon/iconN.png" align = "right" >
 
-- Command <img src="icon/iconN.png" align = "right" >
 
 
+-->
 ## View
 
 - DetailView <img src="icon/iconS.png" align = "right" >
@@ -30,3 +32,4 @@
 ## Schedule
 
 - Schedule - SignUP <img src="icon/iconN.png" align = "right" >
+<-!--
