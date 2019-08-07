@@ -36,7 +36,7 @@ public class FactoryEmployee implements EmployeeCreation{
     }	
    
 }
-```java
+```
 
 # Factory Method
 Busca criar o objeto sem saber a classe exata em sua chamada de Instancia, por meio de um argumento é definido em uma classe reservada qual instancia aquele objeto receberá.
