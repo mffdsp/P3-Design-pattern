@@ -41,7 +41,60 @@ public class FactoryEmployee implements EmployeeCreation{
 # Command Design Pattern
 Atribui as especificações de um botão, nesse caso, de forma encapsulada, por métodos que realizam cada configuração e/ou ações.
 
-## Exemplo no código, em com.buttons.main.BTpattern.java
+## Aplicado no código, em MainView, para todo BTN.
+
+```java
+			BTpattern.Command(BTadd, funcionarios, agenda, LBdata, LBhora, "BTadd");
+			BTpattern.Command(BTedit, funcionarios, agenda, LBdata, LBhora, "BTedit");
+			BTpattern.Command(BTremove, funcionarios, agenda, LBdata, LBhora, "BTremove");
+			BTpattern.Command(BTatthora, funcionarios, agenda, LBdata, LBhora, "BTatthora");
+			BTpattern.Command(BTtaxa, funcionarios, agenda, LBdata, LBhora, "BTagenda");
+			BTpattern.Command(BTagenda, funcionarios, agenda, LBdata, LBhora, "BTagenda");
+			BTpattern.Command(BTfolha, funcionarios, agenda, LBdata, LBhora, "BTfolha");
+			BTpattern.Command(BTattdia, funcionarios, agenda, LBdata, LBhora, "BTattdia");
+			BTpattern.Command(UndoBTN, funcionarios, agenda, LBdata, LBhora, "UndoBTN");
+			BTpattern.Command(RedoBTN, funcionarios, agenda, LBdata, LBhora, "RedoBTN");
+			BTpattern.Command(BTvenda, funcionarios, agenda, LBdata, LBhora, "BTvenda");
+			BTpattern.Command(BTlist, funcionarios, agenda, LBdata, LBhora, "BTlist");
+			BTpattern.Command(BTponto, funcionarios, agenda, LBdata, LBhora, "BTponto");
+
+```java
+
+## Construido em Execute, via factory, e definido em CommandPattern na chamada:
+```java
+public void Command(JButton BT, Funcionario[] funcionarios, Agenda[] agendas, JLabel LBdata, JLabel LBhora, String COMMAND) {
+		
+		new Execute().execute(COMMAND, BT, funcionarios, agendas, LBdata, LBhora);
+}
+```java
+
+## Em Execute, é associado por command cada ação a um determinado botão:
+
+```java
+public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agenda[] agenda, JLabel LBdata, JLabel LBhora) {
+
+		Handler Handler = new Handler();
+
+		if(execute.equals("BTadd")) {
+
+			BT.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					try {
+						Handler.addViewHandler(funcionarios);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}   
+				}
+			});
+		}else if(execute.equals("BTremove")) {
+
+			BT.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					new EditView(funcionarios, "remover", agenda).setVisible(true);
+				}
+			});
+		}
+```java
 
 ```java
 package com.buttons.main;
