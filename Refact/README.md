@@ -44,20 +44,22 @@ Atribui as especificações de um botão, nesse caso, de forma encapsulada, por 
 ## Aplicado no código, em MainView, para todo BTN.
 
 ```java
-			BTpattern.Command(BTadd, funcionarios, agenda, LBdata, LBhora, "BTadd");
-			BTpattern.Command(BTedit, funcionarios, agenda, LBdata, LBhora, "BTedit");
-			BTpattern.Command(BTremove, funcionarios, agenda, LBdata, LBhora, "BTremove");
-			BTpattern.Command(BTatthora, funcionarios, agenda, LBdata, LBhora, "BTatthora");
-			BTpattern.Command(BTtaxa, funcionarios, agenda, LBdata, LBhora, "BTagenda");
-			BTpattern.Command(BTagenda, funcionarios, agenda, LBdata, LBhora, "BTagenda");
-			BTpattern.Command(BTfolha, funcionarios, agenda, LBdata, LBhora, "BTfolha");
-			BTpattern.Command(BTattdia, funcionarios, agenda, LBdata, LBhora, "BTattdia");
-			BTpattern.Command(UndoBTN, funcionarios, agenda, LBdata, LBhora, "UndoBTN");
-			BTpattern.Command(RedoBTN, funcionarios, agenda, LBdata, LBhora, "RedoBTN");
-			BTpattern.Command(BTvenda, funcionarios, agenda, LBdata, LBhora, "BTvenda");
-			BTpattern.Command(BTlist, funcionarios, agenda, LBdata, LBhora, "BTlist");
-			BTpattern.Command(BTponto, funcionarios, agenda, LBdata, LBhora, "BTponto");
+public MainView() throws CloneNotSupportedException {
 
+		BTpattern.Command(BTadd, funcionarios, agenda, LBdata, LBhora, "BTadd");
+		BTpattern.Command(BTedit, funcionarios, agenda, LBdata, LBhora, "BTedit");
+		BTpattern.Command(BTremove, funcionarios, agenda, LBdata, LBhora, "BTremove");
+		BTpattern.Command(BTatthora, funcionarios, agenda, LBdata, LBhora, "BTatthora");
+		BTpattern.Command(BTtaxa, funcionarios, agenda, LBdata, LBhora, "BTagenda");
+		BTpattern.Command(BTagenda, funcionarios, agenda, LBdata, LBhora, "BTagenda");
+		BTpattern.Command(BTfolha, funcionarios, agenda, LBdata, LBhora, "BTfolha");
+		BTpattern.Command(BTattdia, funcionarios, agenda, LBdata, LBhora, "BTattdia");
+		BTpattern.Command(UndoBTN, funcionarios, agenda, LBdata, LBhora, "UndoBTN");
+		BTpattern.Command(RedoBTN, funcionarios, agenda, LBdata, LBhora, "RedoBTN");
+		BTpattern.Command(BTvenda, funcionarios, agenda, LBdata, LBhora, "BTvenda");
+		BTpattern.Command(BTlist, funcionarios, agenda, LBdata, LBhora, "BTlist");
+		BTpattern.Command(BTponto, funcionarios, agenda, LBdata, LBhora, "BTponto");
+}
 ```
 
 ## Construido em Execute, via factory, e definido em CommandPattern na chamada:
