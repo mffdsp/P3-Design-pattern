@@ -58,7 +58,7 @@ Atribui as especificações de um botão, nesse caso, de forma encapsulada, por 
 			BTpattern.Command(BTlist, funcionarios, agenda, LBdata, LBhora, "BTlist");
 			BTpattern.Command(BTponto, funcionarios, agenda, LBdata, LBhora, "BTponto");
 
-```java
+```
 
 ## Construido em Execute, via factory, e definido em CommandPattern na chamada:
 ```java
@@ -66,7 +66,7 @@ public void Command(JButton BT, Funcionario[] funcionarios, Agenda[] agendas, JL
 		
 		new Execute().execute(COMMAND, BT, funcionarios, agendas, LBdata, LBhora);
 }
-```java
+```
 
 ## Em Execute, é associado por command cada ação a um determinado botão:
 
@@ -94,7 +94,7 @@ public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agen
 				}
 			});
 		}
-```java
+```
 
 ```java
 package com.buttons.main;
