@@ -6,12 +6,12 @@
 
 - Command <img src="icon/iconS.png" align = "right" >
 
+- Template <img src="icon/iconN.png" align = "right" >
+
 - Memento <img src="icon/iconN.png" align = "right" >
 
 ---
-```diff
-- Template Design Pattern
-```
+# Template Design Pattern
 
 Realiza ações de forma encadeada, em sequencia.
 
@@ -49,9 +49,8 @@ public class DrawView extends JFrame {
 ```
 ---
 
-```diff
-- Command Design Pattern
-```
+# Command Design Pattern
+
 Atribui as especificações de um botão, nesse caso, de forma encapsulada, por métodos que realizam cada configuração e/ou ações.
 
 ## Associações em Command
