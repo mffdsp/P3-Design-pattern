@@ -53,7 +53,7 @@ public class SellViewBuilder {
 		
 	} 
 
-	public void config(JPanel contentPane) {
+	public void config(JPanel contentPane) { 
 		
 		contentPane.setBackground(SystemColor.menu);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -11,7 +11,7 @@ public class CalendarMT {
 	 public static int Aminuto = 20;
 	 public static int Adia = 1;
 	 public static int Ames = 6;
-	 public static int Aano = 2019;
+	 public static int Aano = 2019; 
 	 public static boolean[] payboo =  new boolean[500];
 	 public static int DAYSGONE = 0; 
 	 public static String weekday = "Domingo";

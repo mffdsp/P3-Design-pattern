@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 
 import com.employee.Assalariado;
 import com.employee.Comissionado;
@@ -23,7 +24,7 @@ public class Utility {
 	public int findIndex(Funcionario[] func) {
 		for(int i = 0; i < 500; i++)
 		{
-			if(!func[i].isSaved()) 
+			if(!func[i].isSaved())  
 			{
 				return i;
 			}
@@ -193,7 +194,7 @@ public class Utility {
 							LBur.setForeground(new Color(30, 144, 255));
 							LBur.setText("Redone!");
 							Cmd.RedoAC = false;
-							sleep(500);
+							sleep(500); 
 						}
 						LBur.setText("");
 						
@@ -204,6 +205,25 @@ public class Utility {
 						if(Cmd.UNDOAC == 0 || Cmd.SS[0][Cmd.SSindex + 1] == null) {
 							RedoBTN.setIcon(new ImageIcon(MainView.class.getResource("/com/payroll/icons/icons8-refazer-32 (1).png")));
 						}else RedoBTN.setIcon(new ImageIcon(MainView.class.getResource("/com/payroll/icons/icons8-refazer-32.png")));
+						
+					}
+				}catch(Exception e) {
+					 System.err.print(e);
+				 }
+		 }
+		};
+		 undo.start();
+	 }
+	 
+	 public void progressBar(JProgressBar progressBar) {
+		 Thread undo = new Thread() {
+			 public void run() {
+				 int i = 0;
+				 try {
+					for(;;) {
+						sleep(200); 
+						progressBar.setValue(i*60);
+						i += 1;
 						
 					}
 				}catch(Exception e) {

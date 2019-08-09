@@ -14,7 +14,7 @@ public class CommandPattern {
 		try {
 			Handler.addViewHandler(funcionarios);
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			ex.printStackTrace(); 
 		}   
 		
 	}

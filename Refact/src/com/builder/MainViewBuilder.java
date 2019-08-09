@@ -39,7 +39,7 @@ public class MainViewBuilder implements ViewBuilder{
         frame.setIconImage(Toolkit.getDefaultToolkit().getImage(MainView.class.getResource("/com/payroll/icons/APPICON.png")));
         frame.setBackground(Color.WHITE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setBounds(100, 100, 485, 521);
+        frame.setBounds(100, 100, 485, 521); 
          
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int height = screenSize.height; 
@@ -55,7 +55,7 @@ public class MainViewBuilder implements ViewBuilder{
         contentPane.setForeground(SystemColor.inactiveCaption);
     }
     
-    public void addLBL(JPanel contentPane, JLabel texto, JLabel LBadd, JLabel LBremove, JLabel LBedit, JLabel LBlist, JLabel background, JLabel LBdata, JLabel LBhora, JLabel LBcartao, JLabel LBtaxa, JLabel LBagenda, JLabel LBvenda, JLabel label_1, JLabel LBfolha, JLabel LBsemana, JLabel LBur) throws Exception{
+    public void addLBL(JPanel contentPane, JLabel texto, JLabel LBadd, JLabel LBremove, JLabel LBedit, JLabel LBlist, JLabel background, JLabel LBdata, JLabel LBhora, JLabel LBcartao, JLabel LBtaxa, JLabel LBagenda, JLabel LBvenda, JLabel label_1, JLabel LBfolha, JLabel LBsemana, JLabel LBur, JLabel LBsorteio) throws Exception{
         
         texto.setForeground(SystemColor.controlText);
         texto.setFont(new Font("Tahoma", Font.PLAIN, 8));
@@ -120,6 +120,9 @@ public class MainViewBuilder implements ViewBuilder{
         LBur.setForeground(new Color(30, 144, 255));
         LBur.setBounds(15, 46, 84, 30);
         
+        LBsorteio.setForeground(Color.BLACK);
+        LBsorteio.setFont(new Font("Tahoma", Font.BOLD, 12));
+        LBsorteio.setBounds(690, 66, 147, 25);
         
         contentPane.setLayout(null);
         contentPane.add(LBadd);
@@ -137,6 +140,7 @@ public class MainViewBuilder implements ViewBuilder{
         contentPane.add(LBsemana);
         contentPane.add(LBur);
         contentPane.add(LBtaxa);
+        contentPane.add(LBsorteio);
     
     }
     

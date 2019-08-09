@@ -12,6 +12,6 @@ public class SaveState{
 	public Funcionario funcionariosSAVE = new Horista(null, null, null , null, null);
 	public Agenda agendasSAVE = new Agenda();
 	protected boolean URpago = false;
-	public boolean payboo = false;
+	public boolean payboo = false; 
  
 }

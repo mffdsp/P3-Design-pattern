@@ -11,7 +11,7 @@ public class Comissionado extends Funcionario implements Cloneable{
 		this.name = name;
 		this.adress = adress;
 		this.type = type;
-		this.payMode = payMode;
+		this.payMode = payMode; 
 		this.code = code;
 	}
 

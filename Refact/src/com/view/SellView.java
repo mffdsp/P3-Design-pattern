@@ -28,7 +28,7 @@ public class SellView extends JFrame {
 		JLabel LBtaxa = new JLabel("Valor da Venda:");  
 		
 		SellViewBuilder.addBTN(contentPane, BTsave, TFobs, TFvalor, func, index, this);
-		SellViewBuilder.addLBL(contentPane, LBtaxa);
+		SellViewBuilder.addLBL(contentPane, LBtaxa); 
 		 
 	}
 

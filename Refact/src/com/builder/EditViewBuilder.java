@@ -29,7 +29,7 @@ public class EditViewBuilder {
 			frame.setBounds(100, 100, 225, 145);
 			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 			int height = screenSize.height;
-			int width = screenSize.width;
+			int width = screenSize.width; 
 			frame.setLocation(width/2-frame.getSize().width/2, height/2-frame.getSize().height/2);
 	        
 	    } 

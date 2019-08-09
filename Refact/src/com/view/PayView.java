@@ -33,7 +33,7 @@ public class PayView extends JFrame {
 		 
 		PayViewBuilder.addBTN(contentPane, BThorista, BTcomissionado, BTassalariado, BTdetalhar, DLMA, DLMC, DLMH, hlist, func);
 		PayViewBuilder.addLBL(contentPane);
-		PayViewBuilder.addSCL(contentPane, scrollPane, hlist, DLMA, DLMC, DLMH);
+		PayViewBuilder.addSCL(contentPane, scrollPane, hlist, DLMA, DLMC, DLMH); 
 		
 	}
 } 

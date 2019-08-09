@@ -30,7 +30,7 @@ public abstract class Funcionario extends Signature implements Cloneable{
 
 		boolean Uday = false;
 		
-		if(this.agenda instanceof Mensal)
+		if(this.agenda instanceof Mensal) 
 		{
 			Uday = ( CalendarMT.Adia >= (((Mensal)this.agenda).getDia() - 2) && CalendarMT.weekday.equals("Sexta-Feira") ) ||
 					(CalendarMT.Adia == ((Mensal)this.agenda).getDia() && !CalendarMT.weekday.equals("Domingo")&& !CalendarMT.weekday.equals("Sabado"));

@@ -11,6 +11,7 @@ import com.employee.Funcionario;
 import com.handler.Handler;
 import com.schedule.Agenda;
 import com.schedule.CriarAgendaView;
+import com.view.DrawView;
 import com.view.EditView;
 import com.memento.Cmd;
 
@@ -127,6 +128,17 @@ public class Execute {
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					CalendarMT.timeChange(funcionarios);
+				}
+			});
+		}else if(execute.equals(Command.DRAW)) {
+ 
+			BT.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					try {
+						new DrawView(funcionarios).setVisible(true);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 				}
 			});
 		}else System.out.println("Comando incorreto!");
