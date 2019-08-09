@@ -6,7 +6,7 @@
 
 - Command <img src="icon/iconS.png" align = "right" >
 
-- Template <img src="icon/iconN.png" align = "right" >
+- Template <img src="icon/iconS.png" align = "right" >
 
 - Memento <img src="icon/iconN.png" align = "right" >
 
