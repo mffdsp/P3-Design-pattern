@@ -2,7 +2,7 @@ package com.schedule;
 
 import com.employee.Assalariado;
 
-public class Mensal extends Agenda implements Cloneable, ScheduleBuilder{
+public class Mensal extends Agenda implements Cloneable{
 	
 	private int dia = 0;
 	private Agenda Schedule;

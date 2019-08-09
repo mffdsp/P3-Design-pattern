@@ -15,7 +15,7 @@ import com.adm.Utility;
 import com.builder.EditViewBuilder;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
-import com.memento.Command;
+import com.memento.Cmd;
 import com.memento.Memento;
 import com.payroll.BaterPonto;
 import com.payroll.RealEdit;

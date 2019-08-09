@@ -8,7 +8,7 @@ import javax.swing.JScrollPane;
 
 import com.builder.PayViewBuilder;
 import com.employee.Funcionario;
-import com.memento.Command;
+import com.memento.Cmd;
 import com.memento.Memento;
 
 public class PayView extends JFrame {

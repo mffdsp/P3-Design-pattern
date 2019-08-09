@@ -31,7 +31,7 @@ import com.employee.Assalariado;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.employee.Horista;
-import com.memento.Command;
+import com.memento.Cmd;
 import com.view.DetailView;
 import com.view.MainView;
 import com.view.PayView;
@@ -91,7 +91,7 @@ public class SellViewBuilder {
 							+ "%\nValor adicionado: " +
 							addValue + "RS", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
 					
-					Command.saveS(func);
+					Cmd.saveS(func);
 					frame.setVisible(false);
 				} catch(Exception ex0) {
 					UT.ERRO();

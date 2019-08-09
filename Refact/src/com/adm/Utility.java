@@ -12,7 +12,7 @@ import com.employee.Assalariado;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.employee.Horista;
-import com.memento.Command;
+import com.memento.Cmd;
 import com.schedule.Agenda;
 import com.schedule.Semanal;
 import com.view.MainView;
@@ -77,7 +77,7 @@ public class Utility {
 				CalendarMT.payboo[i] = false;
 				agenda[i] = new Agenda();
 				agenda[i].setSaved(false);
-				Command.URpago[i] = false;
+				Cmd.URpago[i] = false;
 				
 			}catch(Exception e){
 				System.err.println(e);
@@ -116,10 +116,10 @@ public class Utility {
 				
 				
 				//SE ASSALARIADO
-				if(teste[i] instanceof Assalariado && (pay || Command.URpago[i])){
+				if(teste[i] instanceof Assalariado && (pay || Cmd.URpago[i])){
 					
 					if(pay) {
-						Command.URpago[i] = true;
+						Cmd.URpago[i] = true;
 					}
 					DLMA.addElement(teste[i].toString());
 					if(teste[i].getAgenda() instanceof Semanal) {
@@ -136,10 +136,10 @@ public class Utility {
 					
 				}
 				//SE COMISSIONADO
-				if(teste[i] instanceof Comissionado && (pay || Command.URpago[i])){
+				if(teste[i] instanceof Comissionado && (pay || Cmd.URpago[i])){
 					
 					if(pay) {
-						Command.URpago[i] = true;
+						Cmd.URpago[i] = true;
 					}
 					DLMC.addElement(teste[i].toString());	
 					
@@ -159,10 +159,10 @@ public class Utility {
 					
 				}
 				//SE Horista
-				if(teste[i] instanceof Horista && (pay || Command.URpago[i])){
+				if(teste[i] instanceof Horista && (pay || Cmd.URpago[i])){
 					
 					if(pay) {
-						Command.URpago[i] = true;
+						Cmd.URpago[i] = true;
 					}
 					DLMH.addElement(teste[i].toString());
 					((Horista)teste[i]).setPsalary(teste[i].getSalary());
@@ -184,24 +184,24 @@ public class Utility {
 				 try {
 					for(;;) {
 						//att text
-						if(Command.UndoAC) {
+						if(Cmd.UndoAC) {
 							LBur.setForeground(new Color(255, 165, 0));
 							LBur.setText("Undone!");
-							Command.UndoAC = false;
+							Cmd.UndoAC = false;
 							sleep(500);
-						}else if(Command.RedoAC) {
+						}else if(Cmd.RedoAC) {
 							LBur.setForeground(new Color(30, 144, 255));
 							LBur.setText("Redone!");
-							Command.RedoAC = false;
+							Cmd.RedoAC = false;
 							sleep(500);
 						}
 						LBur.setText("");
 						
 						//att icon
-						if(Command.SSindex == 1) {
+						if(Cmd.SSindex == 1) {
 							UndoBTN.setIcon(new ImageIcon(MainView.class.getResource("/com/payroll/icons/icons8-desfazer-32 (2).png")));
 						}else UndoBTN.setIcon(new ImageIcon(MainView.class.getResource("/com/payroll/icons/icons8-desfazer-32 (3).png")));
-						if(Command.UNDOAC == 0 || Command.SS[0][Command.SSindex + 1] == null) {
+						if(Cmd.UNDOAC == 0 || Cmd.SS[0][Cmd.SSindex + 1] == null) {
 							RedoBTN.setIcon(new ImageIcon(MainView.class.getResource("/com/payroll/icons/icons8-refazer-32 (1).png")));
 						}else RedoBTN.setIcon(new ImageIcon(MainView.class.getResource("/com/payroll/icons/icons8-refazer-32.png")));
 						

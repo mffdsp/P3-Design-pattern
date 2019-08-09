@@ -1,9 +1,8 @@
 package com.schedule;
 
-public class Semanal extends Agenda implements Cloneable, ScheduleBuilder{
+public class Semanal extends Agenda implements Cloneable{
 	
 	private String dia = "Segunda-Feira";
-	private Agenda Schedule;
 	
 	public Semanal(String day, int frequency) {
 		
@@ -19,14 +18,14 @@ public class Semanal extends Agenda implements Cloneable, ScheduleBuilder{
 	 
 	@Override
 	public String toString() {
-		switch(Schedule.getFrequencia())
+		switch(super.getFrequencia())
 		{
 		case 1: 
-			return "Semanal - \"" + Schedule.getFrequencia() + "\" - " + dia;
+			return "Semanal - \"" + super.getFrequencia() + "\" - " + dia;
 		case 2: 
-			return "Bi-Semanal - \"" + Schedule.getFrequencia() + "\" - " + dia;
+			return "Bi-Semanal - \"" + super.getFrequencia() + "\" - " + dia;
 		case 3: 
-			return "Tri-Semanal - \"" + Schedule.getFrequencia() + "\" - " + dia;
+			return "Tri-Semanal - \"" + super.getFrequencia() + "\" - " + dia;
 		}
 		return "ERRO"; 
 	}
@@ -39,30 +38,6 @@ public class Semanal extends Agenda implements Cloneable, ScheduleBuilder{
 		return dia;
 	}
 
-	public void SemanalBuilder()  
-    { 
-        this.Schedule = new Agenda();
-    } 
-	
-	public void buildFrequencia(int frequency) {
-		
-		Schedule.setFrequencia(frequency);
-	}
-	
-	public void buildIndex(int index) {
-		
-		Schedule.setIndex(index);
-	}
-	
-	public void buildSaved(boolean saved) {
-		
-		Schedule.setSaved(saved);
-	}
-	
-	public Agenda getSchedule() {
-		
-		return this.Schedule;
-	}
 	
 
 }

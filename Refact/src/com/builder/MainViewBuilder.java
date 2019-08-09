@@ -20,7 +20,7 @@ import com.adm.CalendarMT;
 import com.adm.Utility;
 import com.employee.Funcionario;
 import com.handler.Handler;
-import com.memento.Command;
+import com.memento.Cmd;
 import com.schedule.Agenda;
 import com.schedule.CriarAgendaView;
 import com.view.EditView;

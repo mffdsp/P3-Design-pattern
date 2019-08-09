@@ -28,7 +28,7 @@ import com.employee.Horista;
 import com.factoryPattern.FactoryEmployee;
 import com.factoryPattern.FactorySchedule;
 import com.label.LBpattern;
-import com.memento.Command;
+import com.memento.Cmd;
 import com.memento.Memento;
 import com.schedule.Agenda;
 import com.schedule.Mensal;
@@ -369,7 +369,7 @@ public class RealEdit extends JFrame {
 		func[index].setFrequenciaD(savefrequency);
 		func[index].setSaved(true);
 		
-		Command.URpago[index] = false;	
+		Cmd.URpago[index] = false;	
 		Memento.saveState(func); 
 		} catch(Exception ex) {
 			System.err.println(ex);

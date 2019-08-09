@@ -98,19 +98,19 @@ public class MainView extends JFrame{
 				
 			CalendarMT.clock(LBdata, LBhora, LBsemana, funcionarios);
 				
-			BTpattern.Command(BTadd, funcionarios, agenda, LBdata, LBhora, "BTadd");
-			BTpattern.Command(BTedit, funcionarios, agenda, LBdata, LBhora, "BTedit");
-			BTpattern.Command(BTremove, funcionarios, agenda, LBdata, LBhora, "BTremove");
-			BTpattern.Command(BTatthora, funcionarios, agenda, LBdata, LBhora, "BTatthora");
-			BTpattern.Command(BTtaxa, funcionarios, agenda, LBdata, LBhora, "BTagenda");
-			BTpattern.Command(BTagenda, funcionarios, agenda, LBdata, LBhora, "BTagenda");
-			BTpattern.Command(BTfolha, funcionarios, agenda, LBdata, LBhora, "BTfolha");
-			BTpattern.Command(BTattdia, funcionarios, agenda, LBdata, LBhora, "BTattdia");
-			BTpattern.Command(UndoBTN, funcionarios, agenda, LBdata, LBhora, "UndoBTN");
-			BTpattern.Command(RedoBTN, funcionarios, agenda, LBdata, LBhora, "RedoBTN");
-			BTpattern.Command(BTvenda, funcionarios, agenda, LBdata, LBhora, "BTvenda");
-			BTpattern.Command(BTlist, funcionarios, agenda, LBdata, LBhora, "BTlist");
-			BTpattern.Command(BTponto, funcionarios, agenda, LBdata, LBhora, "BTponto");
+			BTpattern.Command(BTadd, funcionarios, agenda, LBdata, LBhora, "ADD");
+			BTpattern.Command(BTedit, funcionarios, agenda, LBdata, LBhora, "EDIT");
+			BTpattern.Command(BTremove, funcionarios, agenda, LBdata, LBhora, "RMV");
+			BTpattern.Command(BTatthora, funcionarios, agenda, LBdata, LBhora, "ATTH");
+			BTpattern.Command(BTtaxa, funcionarios, agenda, LBdata, LBhora, "TAX");
+			BTpattern.Command(BTagenda, funcionarios, agenda, LBdata, LBhora, "SCHED");
+			BTpattern.Command(BTfolha, funcionarios, agenda, LBdata, LBhora, "PAY");
+			BTpattern.Command(BTattdia, funcionarios, agenda, LBdata, LBhora, "ATTD");
+			BTpattern.Command(UndoBTN, funcionarios, agenda, LBdata, LBhora, "UNDO");
+			BTpattern.Command(RedoBTN, funcionarios, agenda, LBdata, LBhora, "REDO");
+			BTpattern.Command(BTvenda, funcionarios, agenda, LBdata, LBhora, "SELL");
+			BTpattern.Command(BTlist, funcionarios, agenda, LBdata, LBhora, "LIST");
+			BTpattern.Command(BTponto, funcionarios, agenda, LBdata, LBhora, "POINT");
 
 			
 			UT.UR(LBur, UndoBTN, RedoBTN);

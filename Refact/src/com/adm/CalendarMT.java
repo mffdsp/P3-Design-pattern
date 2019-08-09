@@ -3,7 +3,7 @@ package com.adm;
 import javax.swing.JLabel;
 
 import com.employee.Funcionario;
-import com.memento.Command;
+import com.memento.Cmd;
 
 public class CalendarMT {
 	
@@ -51,7 +51,7 @@ public class CalendarMT {
     		 func[i].timecard.setCheckOUT(false);
     		 func[i].addFrequenciaD(1);
     		 func[i].timecard.setURpago(false);
-    	     Command.URpago[i] = false;
+    	     Cmd.URpago[i] = false;
 				
 	    	}
 		 	DAYSGONE += 1;

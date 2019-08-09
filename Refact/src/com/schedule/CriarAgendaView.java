@@ -20,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.employee.Funcionario;
 import com.factoryPattern.FactorySchedule;
-import com.memento.Command;
+import com.memento.Cmd;
 import com.view.MainView;
 
 public class CriarAgendaView extends JFrame {
@@ -139,15 +139,15 @@ public class CriarAgendaView extends JFrame {
 					frequency = 1;
 				}
 						
-				agenda[Command.AgendaIndex] = factorySchedule.getSchedule(type, day, frequency);
-				String msg = factorySchedule.toString(agenda[Command.AgendaIndex]);
+				agenda[Cmd.AgendaIndex] = factorySchedule.getSchedule(type, day, frequency);
+				String msg = factorySchedule.toString(agenda[Cmd.AgendaIndex]);
 				
 				JOptionPane.showMessageDialog(null ,
 						"Agenda definida como:\n" + msg , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
 				setVisible(false);		
 					
-				Command.AgendaIndex += 1; 
+				Cmd.AgendaIndex += 1; 
 				
 			}
 		});

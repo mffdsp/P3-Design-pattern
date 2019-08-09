@@ -21,7 +21,7 @@ import com.employee.Assalariado;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.employee.Horista;
-import com.memento.Command;
+import com.memento.Cmd;
 import com.memento.Memento;
 
 public class TaxaS extends JFrame {

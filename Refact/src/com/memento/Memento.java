@@ -6,7 +6,7 @@ public class Memento {
 
 	public static void saveState(Funcionario[] funcionarios) throws CloneNotSupportedException {
 		try {
-			Command.saveS(funcionarios);
+			Cmd.saveS(funcionarios);
 		} catch(Exception e) {
 			System.err.println(e);
 		}

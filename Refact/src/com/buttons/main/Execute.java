@@ -9,18 +9,19 @@ import javax.swing.JLabel;
 import com.adm.CalendarMT;
 import com.employee.Funcionario;
 import com.handler.Handler;
-import com.memento.Command;
 import com.schedule.Agenda;
 import com.schedule.CriarAgendaView;
 import com.view.EditView;
+import com.memento.Cmd;
 
 public class Execute {
 
 	public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agenda[] agenda, JLabel LBdata, JLabel LBhora) {
-
+		
+		Command Command = new Command();
 		Handler Handler = new Handler();
 
-		if(execute.equals("BTadd")) {
+		if(execute.equals(Command.ADD)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -31,14 +32,14 @@ public class Execute {
 					}   
 				}
 			});
-		}else if(execute.equals("BTremove")) {
+		}else if(execute.equals(Command.RMV)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					new EditView(funcionarios, "remover", agenda).setVisible(true);
 				}
 			});
-		}else if(execute.equals("BTedit")) {
+		}else if(execute.equals(Command.EDIT)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -46,48 +47,48 @@ public class Execute {
 				}
 			});
 
-		}else if(execute.equals("BTlist")) {
+		}else if(execute.equals(Command.LIST)) {
 
 			BT.addActionListener(new ActionListener() { 
 				public void actionPerformed(ActionEvent arg0) { 
 					Handler.ListViewHandler(funcionarios);
 				}
 			});
-		}else if(execute.equals("BTatthora")) {
+		}else if(execute.equals(Command.ATTH)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					Handler.timeViewHandler(LBdata, LBhora, funcionarios);
 				}
 			});
-		}else if(execute.equals("UndoBTN")) {
+		}else if(execute.equals(Command.UNDO)) {
 
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					Command.UR_ACTION(funcionarios, "UNDO");
+					Cmd.UR_ACTION(funcionarios, "UNDO");
 				}
 			});
 
 		}
-		else if(execute.equals("RedoBTN")) {
+		else if(execute.equals(Command.REDO)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					Command.UR_ACTION(funcionarios, "REDO");
+					Cmd.UR_ACTION(funcionarios, "REDO");
 				}
 
 			});
 
 		}
-		else if(execute.equals("BTponto")) {
+		else if(execute.equals(Command.POINT)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					new EditView(funcionarios, "BPonto", agenda).setVisible(true);
 				}
 			});
-		}	else if(execute.equals("BTtaxa")) {
+		}	else if(execute.equals(Command.TAX)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -95,7 +96,7 @@ public class Execute {
 				}
 			});
 		}
-		else if(execute.equals("BTvenda")) {
+		else if(execute.equals(Command.SELL)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -104,7 +105,7 @@ public class Execute {
 			});
 
 		}
-		else if(execute.equals("BTagenda")) {
+		else if(execute.equals(Command.SCHED)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -112,7 +113,7 @@ public class Execute {
 				}
 			});
 
-		}else if(execute.equals("BTfolha")) {
+		}else if(execute.equals(Command.PAY)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -121,15 +122,14 @@ public class Execute {
 				}
 			});
 		}
-		else if(execute.equals("BTattdia")) {
+		else if(execute.equals(Command.ATTD)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					CalendarMT.timeChange(funcionarios);
 				}
 			});
-		}
-
+		}else System.out.println("Comando incorreto!");
 
 	}
 

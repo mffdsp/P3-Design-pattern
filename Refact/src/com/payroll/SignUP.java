@@ -29,7 +29,7 @@ import com.employee.Funcionario;
 import com.employee.Horista;
 import com.factoryPattern.FactoryEmployee;
 import com.factoryPattern.FactorySchedule;
-import com.memento.Command;
+import com.memento.Cmd;
 import com.memento.Memento;
 import com.schedule.Agenda;
 import com.schedule.Mensal;
@@ -136,7 +136,7 @@ public class SignUP extends JFrame {
 		}
 		
 		func[index].setSalarybup(DBsalary);
-		Command.URpago[index] = false;
+		Cmd.URpago[index] = false;
 		func[index].setSaved(true);
 		try {
 			Memento.saveState(func); 
