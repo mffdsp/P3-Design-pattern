@@ -8,10 +8,9 @@
 
 - Memento <img src="icon/iconN.png" align = "right" >
 
-
+---
 ```diff
-- text in blue
-+ Template Design Pattern
+- Template Design Pattern
 ```
 
 Realiza ações de forma encadeada, em sequencia.
@@ -48,9 +47,11 @@ public class DrawView extends JFrame {
 	draw.sorteioDiario(f);	
 }
 ```
+---
 
-
-# Command Design Pattern
+```diff
+- Command Design Pattern
+```
 Atribui as especificações de um botão, nesse caso, de forma encapsulada, por métodos que realizam cada configuração e/ou ações.
 
 ## Associações em Command
