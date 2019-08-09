@@ -8,8 +8,8 @@
 
 - Memento <img src="icon/iconN.png" align = "right" >
 
-```diff
-+ # Template Design Pattern
+# ```diff
++ Template Design Pattern
 ```
 
 Realiza ações de forma encadeada, em sequencia.
