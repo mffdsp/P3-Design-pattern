@@ -8,6 +8,43 @@
 
 - Memento <img src="icon/iconN.png" align = "right" >
 
+# Template Design Pattern
+Realiza ações de forma encadeada, em sequencia.
+
+## Definido em com.draw.Draw
+```java
+package com.draw;
+
+import com.employee.Funcionario;
+
+public abstract class Draw {
+
+	public final void sorteioDiario(Funcionario[] f) {
+		selecionarFuncionarios(f);
+		sortearFuncionario(); 
+		addPremio(f);
+	}
+
+	abstract void selecionarFuncionarios(Funcionario[] f);
+	abstract void sortearFuncionario();
+	abstract void addPremio(Funcionario[] f);
+
+}
+```
+## Implementado em com.draw.Fortune
+```java
+public class Fortune extends Draw {
+}
+```
+## Chamado em com.view.DrawView
+```java
+public class DrawView extends JFrame {
+
+	draw.sorteioDiario(f);	
+}
+```
+
+
 # Command Design Pattern
 Atribui as especificações de um botão, nesse caso, de forma encapsulada, por métodos que realizam cada configuração e/ou ações.
 
