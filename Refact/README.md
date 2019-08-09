@@ -8,7 +8,10 @@
 
 - Memento <img src="icon/iconN.png" align = "right" >
 
-# Template Design Pattern
+```diff
++ # Template Design Pattern
+```
+
 Realiza ações de forma encadeada, em sequencia.
 
 ## Definido em com.draw.Draw
