@@ -8,8 +8,9 @@
 
 - Memento <img src="icon/iconN.png" align = "right" >
 
-#
+
 ```diff
+- text in blue
 + Template Design Pattern
 ```
 
