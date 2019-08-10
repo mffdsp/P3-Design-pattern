@@ -279,12 +279,12 @@ public class FactoryEmployee implements EmployeeCreation{
 }
 ```
 # -Builder Design Pattern-
-Separa a construção de um objeto complexo de sua representação.
+Separa a construção de um objeto complexo de sua representação, movendo a responsabilidade de Criação para outras classes.
 
-## Exemplo no código, na criação de View.
-Movendo a responsabilidade de Criação para outras classes.
+## Exemplo no código, na criação de View, modificando seu Estilo fora da Classe principal.
 
 com.style.Style -> Define Estilo de Janela e Fontes.
+
 com.builder.MainViewBuilder -> Define Configuração de Frame, Panel e Label.
 
 ```java
