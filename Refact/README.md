@@ -18,6 +18,8 @@ Funcionalidades Adicionadas:
 
 - State <img src="icon/iconS.png" align = "right" >
 
+- Builder <img src="icon/iconS.png" align = "right" >
+
 - Memento <img src="icon/iconN.png" align = "right" >
 
 ---
@@ -298,8 +300,8 @@ public interface StyleInterface {
 ```
 
 ```java
-public class Style implements StyleInterface
-{
+public class Style implements StyleInterface{
+
 	public void setStyle() {
 	    try {
 		   for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
