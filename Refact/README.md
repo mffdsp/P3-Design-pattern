@@ -1,6 +1,6 @@
 # P3-Refact
 
-```C
+```
 Funcionalidades Adicionadas:
 
 	- Realizar Sorteio promocional entre membros do sindicato.
