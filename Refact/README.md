@@ -40,6 +40,15 @@ public abstract class Draw {
 ## Implementado em com.draw.Fortune
 ```java
 public class Fortune extends Draw {
+	void selecionarFuncionarios(Funcionario[] f) {
+		 //CODE
+	}
+	void sortearFuncionario() {
+		//CODE
+	}
+	void addPremio(Funcionario[] f) {
+		//CODE
+	}
 }
 ```
 ## Chamado em com.view.DrawView
