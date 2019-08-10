@@ -69,7 +69,7 @@ public class RealEdit extends JFrame {
 		JLabel LBindisponivel = new JLabel("indisponivel");
 		JLabel LBsind = new JLabel("Sindicato:");
 		JLabel LBicon2 = new JLabel("");
-		
+		JLabel LBnivel = new JLabel(func[index].getState());
 		JTextField TFvalor = new JTextField();
 		JTextField TFadress = new JTextField();
 		JTextField TFname = new JTextField();
@@ -101,6 +101,7 @@ public class RealEdit extends JFrame {
 		lbpattern.addLBL(LBindisponivel, contentPane,362, 94, 87, 21);
 		lbpattern.addLBL(LBsind, contentPane, 260, 34, 92, 21);
 		lbpattern.addLBL(LBicon2, contentPane, 28, 247, 106, 107);
+		lbpattern.addLBL(LBnivel, contentPane, 35, -40, 106, 107);
 	
 		lateConfig(LBicon1, LBicon2, LBrs);
 		
