@@ -298,19 +298,30 @@ public interface StyleInterface {
 ```
 
 ```java
-public class Style implements StyleInterface{
+public class Style implements StyleInterface
+{
 	public void setStyle() {
-	try {
-	        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-	            if ("Nimbus".equals(info.getName())) {
-	                javax.swing.UIManager.setLookAndFeel(info.getClassName());
-	                break;
+	    try {
+		   for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+	      	 	  if ("Nimbus".equals(info.getName())) {
+	                  javax.swing.UIManager.setLookAndFeel(info.getClassName());
+			  break;
 	            }
-	        }
+	      	 }
 	    } catch (Exception ex) {
-	       System.err.println(ex); 
-	    }
-	init();
+	    	   System.err.println(ex); 
+	    }	
+	    init();
+	}
+	
+	public void setGround(String type, JButton BTatthora) {
+		
+		if(type.equals("CAPTION")) {
+			
+			BTatthora.setForeground(SystemColor.inactiveCaption);
+			BTatthora.setBackground(SystemColor.activeCaption);
+			
+		}else System.err.print("type_error");
 	}
 }
 ````
