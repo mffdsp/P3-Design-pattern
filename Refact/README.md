@@ -2,6 +2,7 @@
 
 Funcionalidades Adicionadas: 
 	- Realizar Sorteio promocional entre membros do sindicato.
+	
 	- Funcionários possuem níveis de cargo, possiblidade bonus em salário.
 
 ## Design pattern
