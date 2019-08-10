@@ -8,6 +8,8 @@
 
 - Template <img src="icon/iconS.png" align = "right" >
 
+- State <img src="icon/iconS.png" align = "right" >
+
 - Memento <img src="icon/iconN.png" align = "right" >
 
 ---
@@ -45,6 +47,53 @@ public class Fortune extends Draw {
 public class DrawView extends JFrame {
 
 	draw.sorteioDiario(f);	
+}
+```
+---
+
+# State Design Pattern
+
+Permite que um objeto altere seu comportamento quando seu estado interno é alterado.
+
+## Definido em com.state.State
+```java
+package com.state;
+
+import com.employee.Funcionario;
+
+public interface State {
+	void promote(Funcionario f);
+
+}
+
+```
+## Classes concretas: com.state.Nivel_1/Nivel_2/Nivel_3/Nivel_4/Senior
+
+```java
+package com.state;
+
+import com.employee.Funcionario;
+
+public class Nivel_1 implements State{
+
+	public String toString() {
+		return "Nivel 1";
+	}
+	
+	public void promote(Funcionario f) {
+		
+		f.setSalary(f.getSalary()*1.0);
+		f.setState( new Nivel_2() );
+		
+	}
+
+}
+
+```
+## Chamado em com.view.PromoteView
+```java
+btnNewButton.addActionListener(new ActionListener() {
+	f[indice].promote();
 }
 ```
 ---
