@@ -16,5 +16,6 @@ public class Command {
 	public String LIST = "LIST";
 	public String POINT = "POINT";
 	public String DRAW = "DRAW";
+	public String PROMOTE = "PROMOTE";
 	
 }

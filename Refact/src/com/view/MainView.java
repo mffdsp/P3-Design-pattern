@@ -29,7 +29,7 @@ public class MainView extends JFrame{
 		
 	   Style mainStyle = new Style();
 	   mainStyle.setStyle(); 
-		
+	   
 	} 
 	
 	public MainView() throws CloneNotSupportedException {
@@ -57,7 +57,7 @@ public class MainView extends JFrame{
 		JLabel LBhora = new JLabel();
 		JLabel label_1 = new JLabel();
 		JLabel LBsemana = new JLabel(CalendarMT.getWeekDay());
-		JLabel LBsorteio = new JLabel("Realizar Sorteio");
+		JLabel LBsorteio = new JLabel("Promover / Sorteio");
 		
 		
 		JButton BTedit = new JButton();
@@ -74,6 +74,7 @@ public class MainView extends JFrame{
 		JButton BTfolha = new JButton();
 		JButton BTattdia = new JButton();
 		JButton BTpremio = new JButton();
+		JButton BTpromote = new JButton();
 		  
 		try {
 			mainScreen.addLBL(contentPane, texto, LBadd, LBremove, LBedit, LBlist, background, LBdata, LBhora, LBcartao, LBtaxa, LBagenda, LBvenda, label_1, LBfolha, LBsemana, LBur, LBsorteio);
@@ -93,7 +94,8 @@ public class MainView extends JFrame{
             BTpattern.addBT(RedoBTN, contentPane, 45, 11, "SMALL", "/com/payroll/icons/icons8-refazer-32.png", "");
             BTpattern.addBT(BTvenda, contentPane, 444, 242, "NORMAL", "/com/payroll/icons/icons8-vender-estoque-64.png", "");
             BTpattern.addBT(BTlist, contentPane, 631, 120,  "NORMAL", "/com/payroll/icons/icons8-lista-de-verifica\u00E7\u00E3o-64.png", "");
-            BTpattern.addBT(BTpremio, contentPane, 700, 11,  "NORMAL", "/com/payroll/icons/icons8-pixel-star-48.png", "");
+            BTpattern.addBT(BTpremio, contentPane, 740, 25,  "SMALL", "/com/payroll/icons/icons8-trevo-32.png", "");
+            BTpattern.addBT(BTpromote, contentPane, 700, 25,  "SMALL", "/com/payroll/icons/icons8-mais-2-matemática-32.png", "");
 		
 			Funcionario[] funcionarios = new Funcionario[500];	
 			UT.setALL(funcionarios, agenda);
@@ -115,7 +117,7 @@ public class MainView extends JFrame{
 			BTpattern.Command(BTlist, funcionarios, agenda, LBdata, LBhora, "LIST");
 			BTpattern.Command(BTponto, funcionarios, agenda, LBdata, LBhora, "POINT");
 			BTpattern.Command(BTpremio, funcionarios, agenda, LBdata, LBhora, "DRAW");
-
+			BTpattern.Command(BTpromote, funcionarios, agenda, LBdata, LBhora, "PROMOTE");
 			
 			UT.UR(LBur, UndoBTN, RedoBTN);
 		}

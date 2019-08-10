@@ -26,7 +26,7 @@ import com.schedule.CriarAgendaView;
 import com.view.EditView;
 import com.view.MainView;
 
-public class MainViewBuilder implements ViewBuilder{
+public class MainViewBuilder{
     
     
     public void config(MainView frame) {
@@ -121,8 +121,8 @@ public class MainViewBuilder implements ViewBuilder{
         LBur.setBounds(15, 46, 84, 30);
         
         LBsorteio.setForeground(Color.BLACK);
-        LBsorteio.setFont(new Font("Tahoma", Font.BOLD, 12));
-        LBsorteio.setBounds(690, 66, 147, 25);
+        LBsorteio.setFont(new Font("Tahoma", Font.BOLD, 10));
+        LBsorteio.setBounds(684, 66, 147, 25);
         
         contentPane.setLayout(null);
         contentPane.add(LBadd);

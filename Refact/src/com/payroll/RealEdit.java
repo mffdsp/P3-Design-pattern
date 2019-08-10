@@ -56,7 +56,6 @@ public class RealEdit extends JFrame {
 		setContentPane(contentPane);
 
 		
-		
 		JLabel LBadress = new JLabel("Endere\u00E7o:");
 		JLabel LBname = new JLabel("Nome:");
 		JLabel LBvalor = new JLabel("Valor:");

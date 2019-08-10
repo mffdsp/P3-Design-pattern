@@ -9,18 +9,19 @@ import javax.swing.JLabel;
 import com.adm.CalendarMT;
 import com.employee.Funcionario;
 import com.handler.Handler;
+import com.memento.Cmd;
 import com.schedule.Agenda;
 import com.schedule.CriarAgendaView;
 import com.view.DrawView;
 import com.view.EditView;
-import com.memento.Cmd;
+import com.view.PromoteView;
 
 public class Execute {
 
 	public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agenda[] agenda, JLabel LBdata, JLabel LBhora) {
 		
 		Command Command = new Command();
-		Handler Handler = new Handler();
+		Handler Handler = new Handler();	
 
 		if(execute.equals(Command.ADD)) {
 
@@ -40,6 +41,7 @@ public class Execute {
 					new EditView(funcionarios, "remover", agenda).setVisible(true);
 				}
 			});
+				
 		}else if(execute.equals(Command.EDIT)) {
 
 			BT.addActionListener(new ActionListener() {
@@ -139,6 +141,19 @@ public class Execute {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
+				}
+			});
+		}else if(execute.equals(Command.PROMOTE)) {
+ 
+			BT.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					try {
+						new PromoteView(funcionarios).setVisible(true);
+					} catch (CloneNotSupportedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			
 				}
 			});
 		}else System.out.println("Comando incorreto!");

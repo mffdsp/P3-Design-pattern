@@ -29,7 +29,7 @@ public class BTpattern{
 	    	sizeW = 60;
 	    	sizeH = 49;
 	    }else if(size.equals("SMALL")) {
-			sizeW = 35;
+			sizeW = 35; 
 			sizeH = 50;
 		}else if(size.equals("NORMAL")) {
 			sizeW = 81;

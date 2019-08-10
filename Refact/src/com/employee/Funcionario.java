@@ -1,10 +1,11 @@
 package com.employee;
 
 import com.adm.CalendarMT;
-import com.factoryPattern.FactorySchedule;
 import com.schedule.Agenda;
 import com.schedule.Mensal;
 import com.schedule.Semanal;
+import com.state.Nivel_1;
+import com.state.State;
 import com.timecard.TimeCard;
 import com.union.Union;
 
@@ -16,10 +17,23 @@ public abstract class Funcionario extends Signature implements Cloneable{
 	protected String payMode;
 	protected String type;
 	protected String code;
-
+	
 	public Union union = new Union();
 	public TimeCard timecard = new TimeCard();
 	public Agenda agenda = new Agenda();
+	
+	private State currentState = new Nivel_1();
+	
+	public void setState(State s) {
+		this.currentState = s;
+	}
+	
+	public String getState() {
+		return currentState.toString();
+	}
+	public void promote() {
+		this.currentState.promote(this);
+	}
 	
 	public void setAgenda(Agenda agenda) {
 		this.agenda = agenda;

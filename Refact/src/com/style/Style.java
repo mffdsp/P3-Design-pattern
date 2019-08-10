@@ -8,7 +8,7 @@ import javax.swing.JButton;
 
 import com.view.MainView;
 
-public class Style{
+public class Style implements StyleInterface{
 	
 	public void setStyle() {
 		
@@ -22,7 +22,9 @@ public class Style{
 	    } catch (Exception ex) {
 	       System.err.println(ex); 
 	    }
-	    
+		init();
+	}
+	public void init() {
 		try {
 			MainView window = new MainView();
 			window.setVisible(true);
@@ -30,7 +32,6 @@ public class Style{
 			System.err.println(e);
 		}
 	}
-	
 	public void setGround(String type, JButton BTfolha, JButton BTagenda, JButton BTvenda, JButton BTtaxa, JButton BTponto, JButton BTedit, JButton BTremove, JButton BTadd, JButton BTlist) {
 		
 		if(type.equals("WHITE")) {
