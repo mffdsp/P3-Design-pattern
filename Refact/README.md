@@ -278,6 +278,42 @@ public class FactoryEmployee implements EmployeeCreation{
    
 }
 ```
+# -Builder Design Pattern-
+Separa a construção de um objeto complexo de sua representação.
+
+## Exemplo no código, na criação de View.
+Movendo a responsabilidade de Criação para outras classes.
+
+com.style.Style -> Define Estilo de Janela e Fontes.
+com.builder.MainViewBuilder -> Define Configuração de Frame, Panel e Label.
+
+```java
+package com.style;
+
+public interface StyleInterface {
+	
+	void setStyle();
+
+}
+```
+
+```java
+public class Style implements StyleInterface{
+	public void setStyle() {
+	try {
+	        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+	            if ("Nimbus".equals(info.getName())) {
+	                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+	                break;
+	            }
+	        }
+	    } catch (Exception ex) {
+	       System.err.println(ex); 
+	    }
+	init();
+	}
+}
+````
 
 <!--
 ## View
