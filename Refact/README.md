@@ -13,7 +13,7 @@
 - Memento <img src="icon/iconN.png" align = "right" >
 
 ---
-# Template Design Pattern
+# -Template Design Pattern-
 
 Realiza ações de forma encadeada, em sequencia.
 
@@ -51,7 +51,7 @@ public class DrawView extends JFrame {
 ```
 ---
 
-# State Design Pattern
+# -State Design Pattern-
 
 Permite que um objeto altere seu comportamento quando seu estado interno é alterado.
 
@@ -98,7 +98,7 @@ btnNewButton.addActionListener(new ActionListener() {
 ```
 ---
 
-# Command Design Pattern
+# -Command Design Pattern-
 
 Atribui as especificações de um botão, nesse caso, de forma encapsulada, por métodos que realizam cada configuração e/ou ações.
 
@@ -184,7 +184,7 @@ public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agen
 }
 ```
 
-# Factory Design Pattern
+# -Factory Design Pattern-
 Busca criar o objeto sem saber a classe exata em sua chamada de Instancia, por meio de um argumento é definido em uma classe reservada qual instancia aquele objeto receberá.
 
 ## Exemplo no código, em com.factoryPattern.FactoryEmployee.java:
