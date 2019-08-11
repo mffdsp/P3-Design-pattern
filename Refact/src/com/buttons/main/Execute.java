@@ -7,23 +7,22 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import com.adm.CalendarMT;
+import com.cmd.Cmd;
 import com.employee.Funcionario;
 import com.handler.Handler;
-import com.memento.Cmd;
 import com.schedule.Agenda;
 import com.schedule.CriarAgendaView;
 import com.view.DrawView;
 import com.view.EditView;
 import com.view.PromoteView;
 
-public class Execute {
+public class Execute extends Command{
 
 	public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agenda[] agenda, JLabel LBdata, JLabel LBhora) {
 		
-		Command Command = new Command();
 		Handler Handler = new Handler();	
 
-		if(execute.equals(Command.ADD)) {
+		if(execute.equals(super.ADD)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -34,7 +33,7 @@ public class Execute {
 					}   
 				}
 			});
-		}else if(execute.equals(Command.RMV)) {
+		}else if(execute.equals(super.RMV)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -42,7 +41,7 @@ public class Execute {
 				}
 			});
 				
-		}else if(execute.equals(Command.EDIT)) {
+		}else if(execute.equals(super.EDIT)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -50,21 +49,21 @@ public class Execute {
 				}
 			});
 
-		}else if(execute.equals(Command.LIST)) {
+		}else if(execute.equals(super.LIST)) {
 
 			BT.addActionListener(new ActionListener() { 
 				public void actionPerformed(ActionEvent arg0) { 
 					Handler.ListViewHandler(funcionarios);
 				}
 			});
-		}else if(execute.equals(Command.ATTH)) {
+		}else if(execute.equals(super.ATTH)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					Handler.timeViewHandler(LBdata, LBhora, funcionarios);
 				}
 			});
-		}else if(execute.equals(Command.UNDO)) {
+		}else if(execute.equals(super.UNDO)) {
 
 
 			BT.addActionListener(new ActionListener() {
@@ -74,7 +73,7 @@ public class Execute {
 			});
 
 		}
-		else if(execute.equals(Command.REDO)) {
+		else if(execute.equals(super.REDO)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -84,14 +83,14 @@ public class Execute {
 			});
 
 		}
-		else if(execute.equals(Command.POINT)) {
+		else if(execute.equals(super.POINT)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					new EditView(funcionarios, "BPonto", agenda).setVisible(true);
 				}
 			});
-		}	else if(execute.equals(Command.TAX)) {
+		}	else if(execute.equals(super.TAX)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -99,7 +98,7 @@ public class Execute {
 				}
 			});
 		}
-		else if(execute.equals(Command.SELL)) {
+		else if(execute.equals(super.SELL)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -108,7 +107,7 @@ public class Execute {
 			});
 
 		}
-		else if(execute.equals(Command.SCHED)) {
+		else if(execute.equals(super.SCHED)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -116,7 +115,7 @@ public class Execute {
 				}
 			});
 
-		}else if(execute.equals(Command.PAY)) {
+		}else if(execute.equals(super.PAY)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -125,14 +124,14 @@ public class Execute {
 				}
 			});
 		}
-		else if(execute.equals(Command.ATTD)) {
+		else if(execute.equals(super.ATTD)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					CalendarMT.timeChange(funcionarios);
 				}
 			});
-		}else if(execute.equals(Command.DRAW)) {
+		}else if(execute.equals(super.DRAW)) {
  
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -143,7 +142,7 @@ public class Execute {
 					}
 				}
 			});
-		}else if(execute.equals(Command.PROMOTE)) {
+		}else if(execute.equals(super.PROMOTE)) {
  
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {

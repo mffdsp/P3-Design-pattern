@@ -15,7 +15,6 @@ public class Assalariado extends Funcionario implements Cloneable{
 		this.code = code;
 	}
 
-	
 	 @Override
 	 public Assalariado clone() throws CloneNotSupportedException {
 	     return (Assalariado) super.clone();

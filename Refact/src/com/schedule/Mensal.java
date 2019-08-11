@@ -2,7 +2,7 @@ package com.schedule;
 
 import com.employee.Assalariado;
 
-public class Mensal extends Agenda implements Cloneable{
+public class Mensal extends Agenda implements Cloneable, Config{
 	
 	private int dia = 0;
 	private Agenda Schedule;
@@ -56,5 +56,13 @@ public class Mensal extends Agenda implements Cloneable{
 	public Agenda getSchedule() {
 
 		return this.Schedule;
+	}
+	@Override
+	public void reset() {
+
+		this.setDia(-1);
+		this.setIndex(-1);
+		this.setSaved(false);
+		this.setFrequencia(0);
 	}
 }

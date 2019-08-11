@@ -1,6 +1,6 @@
 package com.buttons.main;
 
-public class Command {
+public abstract class Command {
 	
 	public String ADD = "ADD";
 	public String EDIT = "EDIT";

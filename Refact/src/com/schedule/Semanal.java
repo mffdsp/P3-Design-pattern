@@ -1,6 +1,6 @@
 package com.schedule;
 
-public class Semanal extends Agenda implements Cloneable{
+public class Semanal extends Agenda implements Cloneable, Config{
 	
 	private String dia = "Segunda-Feira";
 	
@@ -36,6 +36,17 @@ public class Semanal extends Agenda implements Cloneable{
 	
 	public String getDia() {
 		return dia;
+	}
+
+	@Override
+	public void reset() {
+		
+		this.setDia("Segunda-Feira");
+		this.setIndex(-1);
+		this.setSaved(false);
+		this.setFrequencia(0);
+		
+		
 	}
 
 	
