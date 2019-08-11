@@ -126,7 +126,7 @@ Atribui as especificações de um botão, nesse caso, de forma encapsulada, por 
 ## Associações em Command
 
 ```java
-public class Command {
+public abstract class Command {
 	
 	public String ADD = "ADD";
 	public String EDIT = "EDIT";
@@ -178,11 +178,12 @@ public void Command(JButton BT, Funcionario[] funcionarios, Agenda[] agendas, JL
 ## Em Execute, é associado por command cada ação a um determinado botão:
 
 ```java
-public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agenda[] agenda, JLabel LBdata, JLabel LBhora) {
+public class Execute extends Command{
 
-		Handler Handler = new Handler();
+	public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agenda[] agenda, JLabel LBdata, JLabel LBhora){
+	Handler Handler = new Handler();
 
-		if(execute.equals(Command.ADD)) {
+		if(execute.equals(super.ADD)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -193,7 +194,7 @@ public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agen
 					}   
 				}
 			});
-		}else if(execute.equals(Command.RMV)) {
+		}else if(execute.equals(super.RMV)) {
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -202,6 +203,9 @@ public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agen
 			});
 		}
 	...
+	
+	}
+
 }
 ```
 
