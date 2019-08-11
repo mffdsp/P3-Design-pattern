@@ -92,7 +92,7 @@ public interface State {
 }
 
 ```
-## Classes concretas: [com.state.Nivel_1/Nivel_2/Nivel_3/Nivel_4/Senior](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/state/Nivel_1.java)
+## Classes concretas: [com.state.Nivel_1/Nivel_2/Nivel_3/Nivel_4/Senior](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/state/Nivel_1.java, https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/state/Nivel_2.java)
 
 ```java
 package com.state;
