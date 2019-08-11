@@ -17,12 +17,12 @@ import javax.swing.SwingConstants;
 
 import com.adm.Utility;
 import com.builder.TaxaViewBuilder;
+import com.cmd.Cmd;
+import com.cmd.Memento;
 import com.employee.Assalariado;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.employee.Horista;
-import com.memento.Cmd;
-import com.memento.Memento;
 
 public class TaxaS extends JFrame {
 	
