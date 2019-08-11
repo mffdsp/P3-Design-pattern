@@ -8,7 +8,7 @@ import javax.swing.JScrollPane;
 
 import com.builder.PayViewBuilder;
 import com.cmd.Cmd;
-import com.cmd.Memento;
+import com.cmd.Singleton;
 import com.employee.Funcionario;
 
 public class PayView extends JFrame {
@@ -20,7 +20,10 @@ public class PayView extends JFrame {
 		
 		PayViewBuilder PayViewBuilder = new PayViewBuilder();
 		PayViewBuilder.config(this, contentPane);
-		Memento.saveState(func); 
+		
+		Cmd cmdSingleton = Singleton.getInstance();
+
+		cmdSingleton.saveS(func); 
 		
 		PayViewBuilder.config(contentPane);
 		

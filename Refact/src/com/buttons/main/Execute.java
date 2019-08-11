@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 
 import com.adm.CalendarMT;
 import com.cmd.Cmd;
+import com.cmd.Singleton;
 import com.employee.Funcionario;
 import com.handler.Handler;
 import com.schedule.Agenda;
@@ -21,7 +22,8 @@ public class Execute extends Command{
 	public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agenda[] agenda, JLabel LBdata, JLabel LBhora) {
 		
 		Handler Handler = new Handler();	
-
+		Cmd cmdSingleton = Singleton.getInstance();
+		
 		if(execute.equals(super.ADD)) {
 
 			BT.addActionListener(new ActionListener() {
@@ -68,7 +70,7 @@ public class Execute extends Command{
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					Cmd.UR_ACTION(funcionarios, "UNDO");
+					cmdSingleton.UR_ACTION(funcionarios, "UNDO");
 				}
 			});
 
@@ -77,7 +79,7 @@ public class Execute extends Command{
 
 			BT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					Cmd.UR_ACTION(funcionarios, "REDO");
+					cmdSingleton.UR_ACTION(funcionarios, "REDO");
 				}
 
 			});
@@ -151,7 +153,7 @@ public class Execute extends Command{
 					} catch (CloneNotSupportedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}
+					}	
 			
 				}
 			});

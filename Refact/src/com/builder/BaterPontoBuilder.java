@@ -14,7 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.adm.CalendarMT;
-import com.cmd.Memento;
+import com.cmd.Cmd;
+import com.cmd.Singleton;
 import com.employee.Funcionario;
 import com.employee.Horista;
 import com.payroll.BaterPonto;
@@ -87,7 +88,8 @@ public class BaterPontoBuilder {
 					}
 					
 					try {
-						Memento.saveState(func); 
+						Cmd cmdSingleton = Singleton.getInstance();		
+						cmdSingleton.saveS(func); 
 					} catch (CloneNotSupportedException e) {
 						e.printStackTrace();
 					}
@@ -108,8 +110,9 @@ public class BaterPontoBuilder {
 				func[index].getTimeCard().setTimeIN(CalendarMT.Ahora);
 				
 				try {
+					Cmd cmdSingleton = Singleton.getInstance();		
+					cmdSingleton.saveS(func);
 					
-					Memento.saveState(func); 
 				} catch (CloneNotSupportedException e) {
 					
 					e.printStackTrace();

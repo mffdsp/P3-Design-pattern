@@ -10,8 +10,8 @@ import com.adm.CalendarMT;
 import com.adm.Utility;
 import com.builder.MainViewBuilder;
 import com.buttons.main.BTpattern;
-import com.buttons.main.Execute;
-import com.cmd.Memento;
+import com.cmd.Cmd;
+import com.cmd.Singleton;
 import com.employee.Funcionario;
 import com.schedule.Agenda;
 import com.style.Style;
@@ -99,7 +99,9 @@ public class MainView extends JFrame{
 		
 			Funcionario[] funcionarios = new Funcionario[500];	
 			UT.setALL(funcionarios, agenda);
-			Memento.saveState(funcionarios);
+			
+			Cmd cmdSingleton = Singleton.getInstance();
+			cmdSingleton.saveS(funcionarios);
 				
 			CalendarMT.clock(LBdata, LBhora, LBsemana, funcionarios);
 				

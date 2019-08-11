@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import com.adm.Utility;
 import com.builder.EditViewBuilder;
 import com.cmd.Cmd;
-import com.cmd.Memento;
+import com.cmd.Singleton;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.payroll.BaterPonto;
@@ -108,7 +108,9 @@ public class EditView extends JFrame {
 				JOptionPane.showMessageDialog(null ,
 				"Funcionário removido com sucesso", "Remover", JOptionPane.INFORMATION_MESSAGE);
 				try {
-					Memento.saveState(func); 
+					Cmd cmdSingleton = Singleton.getInstance();
+					cmdSingleton.saveS(func); 
+					
 				} catch (CloneNotSupportedException e1) {
 					e1.printStackTrace();
 				}

@@ -34,32 +34,32 @@ public class DrawView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.setBackground(Color.WHITE);
+		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int height = screenSize.height; 
 		int width = screenSize.width;
 		setLocation(width/2-getSize().width/2 - 150, height/2-getSize().height/2);
 		
 		JButton btnSorteio = new JButton("GO");
-		btnSorteio.setBounds(143, 187, 55, 31);
-		
+		JTextPane txtpnRegrasFuncionario = new JTextPane();
 		JProgressBar progressBar = new JProgressBar();
-		progressBar.setBounds(30, 162, 146, 14);
-		contentPane.add(progressBar);
 		
+		btnSorteio.setBounds(143, 187, 55, 31);
+		progressBar.setBounds(30, 162, 146, 14);
+		txtpnRegrasFuncionario.setBounds(30, 11, 141, 132);
+		txtpnRegrasFuncionario.setText("Regras:\r\n\r\n- Funcionario deve possuir associa\u00E7\u00E3o sindical.\r\n- Bonifica\u00E7\u00E3o ser\u00E1 aplicada no pr\u00F3ximo sal\u00E1rio.\r\n");
+
 		btnSorteio.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				
-				UT.progressBar(progressBar);
+				UT.progressBar(progressBar);	
 				draw.sorteioDiario(f);	
 				setVisible(false);
 			}
 		});
 		
+		contentPane.add(progressBar);
 		contentPane.add(btnSorteio);
-		
-		JTextPane txtpnRegrasFuncionario = new JTextPane();
-		txtpnRegrasFuncionario.setText("Regras:\r\n\r\n- Funcionario deve possuir associa\u00E7\u00E3o sindical.\r\n- Bonifica\u00E7\u00E3o ser\u00E1 aplicada no pr\u00F3ximo sal\u00E1rio.\r\n");
-		txtpnRegrasFuncionario.setBounds(30, 11, 141, 132);
 		contentPane.add(txtpnRegrasFuncionario);
 		
 		

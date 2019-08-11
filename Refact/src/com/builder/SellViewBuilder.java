@@ -1,40 +1,28 @@
 package com.builder;
 
-import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
-import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.AbstractListModel;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
-import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 
 import com.adm.Utility;
 import com.cmd.Cmd;
-import com.employee.Assalariado;
+import com.cmd.Singleton;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
-import com.employee.Horista;
-import com.view.DetailView;
 import com.view.MainView;
-import com.view.PayView;
 import com.view.SellView;
 
 public class SellViewBuilder {
@@ -91,7 +79,9 @@ public class SellViewBuilder {
 							+ "%\nValor adicionado: " +
 							addValue + "RS", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
 					
-					Cmd.saveS(func);
+					Cmd cmdSingleton = Singleton.getInstance();		
+					cmdSingleton.saveS(func);
+					
 					frame.setVisible(false);
 				} catch(Exception ex0) {
 					UT.ERRO();

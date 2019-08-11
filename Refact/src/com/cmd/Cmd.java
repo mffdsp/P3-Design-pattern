@@ -21,10 +21,9 @@ public class Cmd implements CommandInterface{
 	//For visual
 	public static boolean UndoAC = false; 
 	public static boolean RedoAC = false;
-	
 
 	//PSV para nao passar por argumento em toda View
-	public static void saveS(Funcionario[] func) throws CloneNotSupportedException {
+	public void saveS(Funcionario[] func) throws CloneNotSupportedException {
 		
     	SSindex += 1;
     	try {
@@ -66,7 +65,7 @@ public class Cmd implements CommandInterface{
 			
 		}
 	
-	public static void UR_ACTION(Funcionario[] func, String action) throws NullPointerException{
+	public void UR_ACTION(Funcionario[] func, String action) throws NullPointerException{
 		
 		if(SSindex == 1 && action.equals("UNDO")) {
 			System.out.println("EMPTY/ENDOF STACK");

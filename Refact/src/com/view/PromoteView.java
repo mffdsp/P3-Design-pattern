@@ -34,6 +34,7 @@ public class PromoteView extends JFrame  {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.setBackground(Color.WHITE);
+		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int height = screenSize.height; 
 		int width = screenSize.width;
@@ -51,6 +52,7 @@ public class PromoteView extends JFrame  {
 				int indice = 0;
 				boolean notvalid = true;
 				try {
+					
 					indice = UT.getIndex(codeField.getText());
 					notvalid = f[indice] == null || Integer.parseInt(codeField.getText()) < 20190 || !f[indice].isSaved();
 					if(notvalid) {

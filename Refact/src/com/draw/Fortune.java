@@ -12,9 +12,11 @@ public class Fortune extends Draw {
 	double prize = 500;
 	int ganhador = -1;
 	boolean validFortune = false;
-
+	com.strategy.Fortune teste = new com.strategy.Fortune();
+	
 	void selecionarFuncionarios(Funcionario[] f) {
 		
+		teste.solve();
 		for(int i = 0; i < 500; i++) {
 			if(isValid(f[i])) {
 				fortuneList[i] = 1;
