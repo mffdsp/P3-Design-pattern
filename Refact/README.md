@@ -92,7 +92,7 @@ public interface State {
 }
 
 ```
-## Classes concretas: [com.state.Nivel_1/Nivel_2/Nivel_3/Nivel_4/Senior](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/state/Nivel_1.java, https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/state/Nivel_2.java)
+## Classes concretas: [com.state.Nivel_1/Nivel_2/Nivel_3/Nivel_4/Senior](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/state/Nivel_1.java)
 
 ```java
 package com.state;
@@ -115,7 +115,7 @@ public class Nivel_1 implements State{
 }
 
 ```
-## Chamado em com.view.PromoteView
+## Chamado em [com.view.PromoteView](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/view/PromoteView.java)
 ```java
 btnNewButton.addActionListener(new ActionListener() {
 	f[indice].promote();
@@ -127,7 +127,7 @@ btnNewButton.addActionListener(new ActionListener() {
 Defina uma dependência entre objetos para que, quando um objeto mudar de estado, todos os seus dependentes sejam notificados e atualizados automaticamente.
 Neste caso os Objetos JProgressBar e a JFrame, dependem exclusivamente do estado de JButton, caso ocorra a chamada do metodo ActionListener(), todos são atualizados automaticamente.
 
-Em com.view.DrawView.java
+Em [com.view.DrawView.java](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/view/DrawView.java)
 
 ```java
 
@@ -255,7 +255,7 @@ public class Execute extends Command{
 # -Factory Design Pattern-
 Busca criar o objeto sem saber a classe exata em sua chamada de Instancia, por meio de um argumento é definido em uma classe reservada qual instancia aquele objeto receberá.
 
-## Exemplo no código, em com.factoryPattern.FactoryEmployee.java:
+## Exemplo no código, em [com.factoryPattern.FactoryEmployee.java](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/factoryPattern/FactoryEmployee.java)
 
 ```java
 package com.factoryPattern;
@@ -292,7 +292,7 @@ public class FactoryEmployee implements EmployeeCreation{
 }
 ```
 
-## Exemplo no código, em com.factoryPattern.ScheduleCreation.java:
+## Exemplo no código, em [com.factoryPattern.ScheduleCreation.java](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/factoryPattern/ScheduleCreation.java)
 
 ```java
 package com.factoryPattern;
@@ -345,7 +345,7 @@ public class Assalariado extends Signature implements Cloneable{
 }
 
 ```
-## Clonado em com.cmd.Cmd.java;
+## Clonado em [com.cmd.Cmd](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/cmd/Cmd.java)
 ```java
 public class Cmd implements CommandInterface{
 
@@ -364,6 +364,7 @@ public class Cmd implements CommandInterface{
 # -Singleton Design Pattern-
 Garante que exista apenas uma instancia de um objeto em todo o código, nesse caso o objeto cmd, que cuida do UNDO/REDO.
 
+Em [com.cmd.Singleton]((https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/cmd/Singleton.java))
 ```java
 package com.cmd;
 
@@ -382,7 +383,7 @@ public final class Singleton{
 	
 ```
 
-Exemplo de utilização em com.view.MainView
+Exemplo de utilização em [com.view.MainView]((https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/view/MainView.java))
 
 ```java
 public MainView() throws CloneNotSupportedException{
@@ -400,9 +401,9 @@ Separa a construção de um objeto complexo de sua representação, movendo a re
 
 ## Exemplo no código, na criação de View, modificando seu Estilo fora da Classe principal.
 
-com.style.Style -> Define Estilo de Janela e Fontes.
+[com.style.Style](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/style/Style.java) -> Define Estilo de Janela e Fontes.
 
-com.builder.MainViewBuilder -> Define Configuração de Frame, Panel e Label.
+[com.builder.MainViewBuilder](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/builder/MainViewBuilder.java) -> Define Configuração de Frame, Panel e Label.
 
 ```java
 package com.style;
