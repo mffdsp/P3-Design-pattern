@@ -266,24 +266,23 @@ public interface ScheduleCreation {
 ```java
 package com.factoryPattern;
 
-import com.employee.Assalariado;
-import com.employee.Comissionado;
-import com.employee.Funcionario;
-import com.employee.Horista;
+import com.schedule.Agenda;
+import com.schedule.Mensal;
+import com.schedule.Semanal;
 
-public class FactoryEmployee implements EmployeeCreation{
+public class FactorySchedule implements ScheduleCreation{
 
-    public Funcionario getEmployee(String type, String name, String adress, String ftype, String payMode, String code) throws Exception {
-        if (type.equals("A")) 
-            return new Assalariado(name, adress, ftype, payMode, code);
-        if (type.equals("C"))
-        	return new Comissionado(name, adress, ftype, payMode, code);
-        if (type.equals("H"))
-        	return new Horista(name, adress, ftype, payMode, code);
+    @Override
+    public Agenda getSchedule(String type, String day, int frequency) {
+		
+        if (type.equals("Mensal")) 
+            return new Mensal(day, frequency);
+        if (type.equals("Semanal"))
+            return new Semanal(day, frequency);
         else 
-        	throw new IllegalArgumentException("Argumento invalido");
-    }	
-   
+            System.err.println("Argumento invalido");
+            return null;
+    }
 }
 ```
 
