@@ -33,7 +33,7 @@ Funcionalidades Adicionadas:
 
 Realiza ações de forma encadeada, em sequencia, as subclasses decidem como implementar os passos de um algoritimo;
 
-## Definido em https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Draw.java
+## Definido em [com.draw.Draw](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Draw.java) 
 ```java
 package com.draw;
 
