@@ -53,7 +53,7 @@ public abstract class Draw {
 
 }
 ```
-## Implementado em com.draw.Fortune
+## Implementado em [com.draw.Fortune](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Fortune.java)
 ```java
 public class Fortune extends Draw {
 	void selecionarFuncionarios(Funcionario[] f) {
@@ -67,7 +67,7 @@ public class Fortune extends Draw {
 	}
 }
 ```
-## Chamado em com.view.DrawView
+## Chamado em [com.view.DrawView](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/view/DrawView.java)
 ```java
 public class DrawView extends JFrame {
 
@@ -80,7 +80,7 @@ public class DrawView extends JFrame {
 
 Permite que um objeto altere seu comportamento quando seu estado interno é alterado, de forma encapsulada.
 
-## Definido em com.state.State
+## Definido em [com.state.State](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/state/State.java)
 ```java
 package com.state;
 
@@ -92,7 +92,7 @@ public interface State {
 }
 
 ```
-## Classes concretas: com.state.Nivel_1/Nivel_2/Nivel_3/Nivel_4/Senior
+## Classes concretas: [com.state.Nivel_1/Nivel_2/Nivel_3/Nivel_4/Senior](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/state/Nivel_1.java)
 
 ```java
 package com.state;
