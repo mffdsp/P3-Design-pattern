@@ -292,7 +292,7 @@ public class FactoryEmployee implements EmployeeCreation{
 }
 ```
 
-## Exemplo no código, em [com.factoryPattern.ScheduleCreation.java](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/factoryPattern/ScheduleCreation.java)
+## Exemplo no código, em [com.factoryPattern.ScheduleCreation](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/factoryPattern/ScheduleCreation.java)
 
 ```java
 package com.factoryPattern;
@@ -364,7 +364,7 @@ public class Cmd implements CommandInterface{
 # -Singleton Design Pattern-
 Garante que exista apenas uma instancia de um objeto em todo o código, nesse caso o objeto cmd, que cuida do UNDO/REDO.
 
-Em [com.cmd.Singleton]((https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/cmd/Singleton.java))
+Em [com.cmd.Singleton](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/cmd/Singleton.java)
 ```java
 package com.cmd;
 
@@ -383,7 +383,7 @@ public final class Singleton{
 	
 ```
 
-Exemplo de utilização em [com.view.MainView]((https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/view/MainView.java))
+Exemplo de utilização em [com.view.MainView](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/view/MainView.java)
 
 ```java
 public MainView() throws CloneNotSupportedException{
