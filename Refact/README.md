@@ -24,6 +24,8 @@ Funcionalidades Adicionadas:
 
 - Singleton <img src="icon/iconS.png" align = "right" >
 
+- Observer <img src="icon/iconS.png" align = "right" >
+
 - Memento <img src="icon/iconN.png" align = "right" >
 
 ---
@@ -120,6 +122,45 @@ btnNewButton.addActionListener(new ActionListener() {
 }
 ```
 ---
+# - Observer Design Patter-
+
+Defina uma dependência entre objetos para que, quando um objeto mudar de estado, todos os seus dependentes sejam notificados e atualizados automaticamente.
+Neste caso os Objetos JProgressBar e a JFrame, dependem exclusivamente do estado de JButton, caso ocorra a chamada do metodo ActionListener(), todos são atualizados automaticamente.
+
+Em com.view.DrawView.java
+
+```java
+
+public class DrawView extends JFrame {
+
+	private JPanel contentPane;
+	Draw draw = new Fortune();
+	Utility UT = new Utility();
+	
+	public DrawView(Funcionario[] f) throws InterruptedException { 
+	
+		JButton btnSorteio = new JButton("GO");
+		JTextPane txtpnRegrasFuncionario = new JTextPane();
+		JProgressBar progressBar = new JProgressBar();
+		
+		//A implementação do Metodo em Jbutton gera uma alteração em JProgressBar e em JFrame
+		btnSorteio.addActionListener(new ActionListener() { 
+			public void actionPerformed(ActionEvent e) {
+				
+				UT.progressBar(progressBar);	//JProgressBar
+				draw.sorteioDiario(f);		//Chamada por Template
+				setVisible(false);		//JFrame
+			}
+		});
+		
+		contentPane.add(progressBar);
+		contentPane.add(btnSorteio);
+		contentPane.add(txtpnRegrasFuncionario);
+	}
+}
+
+
+```
 
 # -Command Design Pattern-
 Encapsula uma solicitação como um objeto;
