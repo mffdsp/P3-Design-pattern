@@ -22,6 +22,8 @@ Funcionalidades Adicionadas:
 
 - Prototype <img src="icon/iconS.png" align = "right" >
 
+- Singleton <img src="icon/iconS.png" align = "right" >
+
 - Memento <img src="icon/iconN.png" align = "right" >
 
 ---
@@ -316,6 +318,39 @@ public class Cmd implements CommandInterface{
     }
 	 
 }
+
+```
+# -Singleton Design Pattern-
+Garante que exista apenas uma instancia de um objeto em todo o código, nesse caso o objeto cmd, que cuida do UNDO/REDO.
+
+```java
+package com.cmd;
+
+public final class Singleton{
+	
+	private static Cmd cmd;
+	
+	public static Cmd getInstance() {
+		  
+	        if (cmd == null) {
+	            cmd = new Cmd();
+	        }
+	        return cmd;
+	 }
+}
+	
+```
+
+Exemplo de utilização em com.view.MainView
+
+```java
+public MainView() throws CloneNotSupportedException{
+
+	Cmd cmdSingleton = Singleton.getInstance();
+	//Utilizando Singleton.getinstance(), a instancia  de Cmd retornada é a mesma utilizada em outras partes do código.
+	cmdSingleton.saveS(funcionarios);
+}
+
 
 ```
 
