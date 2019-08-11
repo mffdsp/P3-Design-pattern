@@ -25,15 +25,13 @@ import javax.swing.border.EmptyBorder;
 
 import com.adm.Utility;
 import com.cmd.Cmd;
-import com.cmd.Memento;
+import com.cmd.Singleton;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.employee.Horista;
 import com.factoryPattern.FactoryEmployee;
 import com.factoryPattern.FactorySchedule;
 import com.schedule.Agenda;
-import com.schedule.Mensal;
-import com.schedule.Semanal;
 
 public class SignUP extends JFrame {
 	
@@ -135,11 +133,14 @@ public class SignUP extends JFrame {
 			((Comissionado)func[index]).setPsalary(func[index].getSalary());
 		}
 		
+		Cmd cmdSingleton = Singleton.getInstance();
 		func[index].setSalarybup(DBsalary);
-		Cmd.URpago[index] = false;
+		cmdSingleton.URpago[index] = false;
 		func[index].setSaved(true);
+		
 		try {
-			Memento.saveState(func); 
+			cmdSingleton.saveS(func);
+			
 		} catch (CloneNotSupportedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

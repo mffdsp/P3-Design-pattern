@@ -18,7 +18,7 @@ import javax.swing.SwingConstants;
 import com.adm.Utility;
 import com.builder.TaxaViewBuilder;
 import com.cmd.Cmd;
-import com.cmd.Memento;
+import com.cmd.Singleton;
 import com.employee.Assalariado;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
@@ -103,7 +103,10 @@ public class TaxaS extends JFrame {
 				JOptionPane.showMessageDialog(null ,
 						"Taxa debitada com sucesso à: \n"
 						+ func[index].getName() + "\nCódigo Sindical: " + func[index].union.getSindicatycode(), "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
-				Memento.saveState(func); 
+				
+				Cmd cmdSingleton = Singleton.getInstance();
+				cmdSingleton.saveS(func);
+				
 				setVisible(false);
 						
 

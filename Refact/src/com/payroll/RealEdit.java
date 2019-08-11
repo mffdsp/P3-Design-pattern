@@ -23,7 +23,7 @@ import javax.swing.border.CompoundBorder;
 import com.adm.Utility;
 import com.builder.RealEditBuilder;
 import com.cmd.Cmd;
-import com.cmd.Memento;
+import com.cmd.Singleton;
 import com.employee.Comissionado;
 import com.employee.Funcionario;
 import com.employee.Horista;
@@ -369,8 +369,10 @@ public class RealEdit extends JFrame {
 		func[index].setFrequenciaD(savefrequency);
 		func[index].setSaved(true);
 		
-		Cmd.URpago[index] = false;	
-		Memento.saveState(func); 
+		Cmd cmdSingleton = Singleton.getInstance();
+		cmdSingleton.URpago[index] = false;
+		cmdSingleton.saveS(func);
+		
 		} catch(Exception ex) {
 			System.err.println(ex);
 		}
