@@ -20,6 +20,8 @@ Funcionalidades Adicionadas:
 
 - Builder <img src="icon/iconS.png" align = "right" >
 
+- Prototype <img src="icon/iconS.png" align = "right" >
+
 - Memento <img src="icon/iconN.png" align = "right" >
 
 ---
@@ -280,6 +282,40 @@ public class FactoryEmployee implements EmployeeCreation{
    
 }
 ```
+
+# -Prototype Design Pattern-
+Criaa, usando uma instância prototípica, novos objetos copiando esse protótipo
+
+## Exemplo no código, na implementação de UNDO/REDO;
+
+```java
+public class Assalariado extends Signature implements Cloneable{
+	//Classe a ser prototipada implementa a interface Cloneable
+	 @Override
+	 public Assalariado clone() throws CloneNotSupportedException {
+	     return (Assalariado) super.clone();
+	 }
+	 
+}
+
+```
+## Clonado em com.cmd.Cmd.java;
+```java
+public class Cmd implements CommandInterface{
+
+	void saveS(Funcionario[] func) throws CloneNotSupportedException {
+    	for(int i = 0; i < 500; i++) {
+		
+		SS[i][SSindex].funcionariosSAVE = new Horista(null, null, null, null, null);
+		SS[i][SSindex].funcionariosSAVE = func[i]).clone(); //Chamada de prototipo.
+	}
+
+    }
+	 
+}
+
+```
+
 # -Builder Design Pattern-
 Separa a construção de um objeto complexo de sua representação, movendo a responsabilidade de Criação para outras classes.
 
