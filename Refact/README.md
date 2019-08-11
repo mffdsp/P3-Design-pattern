@@ -29,7 +29,7 @@ Funcionalidades Adicionadas:
 ---
 # -Template Design Pattern-
 
-Realiza ações de forma encadeada, em sequencia.
+Realiza ações de forma encadeada, em sequencia, as subclasses decidem como implementar os passos de um algoritimo;
 
 ## Definido em com.draw.Draw
 ```java
@@ -76,7 +76,7 @@ public class DrawView extends JFrame {
 
 # -State Design Pattern-
 
-Permite que um objeto altere seu comportamento quando seu estado interno é alterado.
+Permite que um objeto altere seu comportamento quando seu estado interno é alterado, de forma encapsulada.
 
 ## Definido em com.state.State
 ```java
@@ -122,7 +122,7 @@ btnNewButton.addActionListener(new ActionListener() {
 ---
 
 # -Command Design Pattern-
-
+Encapsula uma solicitação como um objeto;
 Atribui as especificações de um botão, nesse caso, de forma encapsulada, por métodos que realizam cada configuração e/ou ações.
 
 ## Associações em Command
