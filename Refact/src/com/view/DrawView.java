@@ -14,6 +14,8 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
 import com.adm.Utility;
+import com.command.Command;
+import com.command.DrawCommand;
 import com.draw.Draw;
 import com.draw.Fortune;
 import com.employee.Funcionario;
@@ -26,11 +28,8 @@ public class DrawView extends JFrame {
 	
 	public DrawView(Funcionario[] f) throws InterruptedException { 
 		
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 224, 267);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setTitle("Sorteio!");
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.setBackground(Color.WHITE);
@@ -49,9 +48,12 @@ public class DrawView extends JFrame {
 		txtpnRegrasFuncionario.setBounds(30, 11, 141, 132);
 		txtpnRegrasFuncionario.setText("Regras:\r\n\r\n- Funcionario deve possuir associa\u00E7\u00E3o sindical.\r\n- Bonifica\u00E7\u00E3o ser\u00E1 aplicada no pr\u00F3ximo sal\u00E1rio.\r\n");
 
+		DrawView DV = this;
+		executeCommand(new DrawCommand(DV));
+		
 		btnSorteio.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
-				
+					
 				UT.progressBar(progressBar);	
 				draw.sorteioDiario(f);	
 				setVisible(false);
@@ -60,13 +62,12 @@ public class DrawView extends JFrame {
 		
 		contentPane.add(progressBar);
 		contentPane.add(btnSorteio);
-		contentPane.add(txtpnRegrasFuncionario);
-		
-		
-		
-				
-		
-		
-		
+		contentPane.add(txtpnRegrasFuncionario);		
 	}
+	
+	private void executeCommand(Command command) {
+			command.execute();
+    }
+
+ 
 }
