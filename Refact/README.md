@@ -164,9 +164,53 @@ public class DrawView extends JFrame {
 
 # -Command Design Pattern-
 Encapsula uma solicitação como um objeto;
-Atribui as especificações de um botão, nesse caso, de forma encapsulada, por métodos que realizam cada configuração e/ou ações.
+Nesse caso utilizei no desenho de uma Janela.
 
-## Associações em Command
+```java
+package command;
+
+import javax.swing.JFrame;
+
+public abstract class Command {
+	
+    public JFrame frame;
+    
+    Command(JFrame frame) {
+        this.frame = frame;
+    }
+
+    public abstract void execute();
+}
+
+```
+
+```java
+package command;
+
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class DrawCommand extends Command {
+
+    public DrawCommand(JFrame frame) {
+		super(frame);
+	}
+    
+    @Override
+    public void execute() {
+    	
+    	frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    	frame.setBounds(100, 100, 224, 267);
+    	frame.setTitle("Sorteio!");
+    }
+}
+
+```
+
+Outra aplicação de forma diferente, para ações de cada JButton.
 
 ```java
 public abstract class Command {
@@ -184,7 +228,6 @@ public abstract class Command {
 	public String SELL = "SELL";
 	public String LIST = "LIST";
 	public String POINT = "POINT";
-	
 }
 
 ```
@@ -207,48 +250,6 @@ public MainView() throws CloneNotSupportedException {
 		BTpattern.Command(BTvenda, funcionarios, agenda, LBdata, LBhora, "SELL");
 		BTpattern.Command(BTlist, funcionarios, agenda, LBdata, LBhora, "LIST");
 		BTpattern.Command(BTponto, funcionarios, agenda, LBdata, LBhora, "POINT");
-}
-```
-
-## Construido em Execute, via factory, e definido em CommandPattern na chamada:
-```java
-public void Command(JButton BT, Funcionario[] funcionarios, Agenda[] agendas, JLabel LBdata, JLabel LBhora, String COMMAND) {
-		
-		new Execute().execute(COMMAND, BT, funcionarios, agendas, LBdata, LBhora);
-}
-```
-
-## Em Execute, é associado por command cada ação a um determinado botão:
-
-```java
-public class Execute extends Command{
-
-	public void execute(String execute, JButton BT, Funcionario[] funcionarios, Agenda[] agenda, JLabel LBdata, JLabel LBhora){
-	Handler Handler = new Handler();
-
-		if(execute.equals(super.ADD)) {
-
-			BT.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					try {
-						Handler.addViewHandler(funcionarios);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}   
-				}
-			});
-		}else if(execute.equals(super.RMV)) {
-
-			BT.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					new EditView(funcionarios, "remover", agenda).setVisible(true);
-				}
-			});
-		}
-	...
-	
-	}
-
 }
 ```
 
