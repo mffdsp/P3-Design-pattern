@@ -1,6 +1,9 @@
 # P3-Refact
 
-## [Verificar código completo](https://github.com/mffdsp/P3-Refact/tree/master/Refact/srcFINAL/com)
+## Links
+[Verificar código completo](https://github.com/mffdsp/P3-Refact/tree/master/Refact/srcFINAL/com)
+
+[Download .jar](https://github.com/mffdsp/P3-Refact/blob/master/Refact/refactory.jar)
 ```
 Funcionalidades Adicionadas:
 
