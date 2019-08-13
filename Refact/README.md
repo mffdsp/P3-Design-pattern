@@ -444,7 +444,40 @@ public class Style implements StyleInterface{
 	}
 }
 ````
+Além disso, como o código é baseado em JFrame, é obrigatório que se use o Builder na criação de uma janela.
+Por exemplo em: 
+[com.builder.TaxaViewBuilder](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/builder/TaxaViewBuilder.java)
 
+```java
+public class TaxaViewBuilder {
+	
+	public void config(TaxaS frame) {
+        
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setBounds(100, 100, 225, 205);  //Constroi limites
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(MainView.class.getResource("/com/payroll/icons/APPICON.png"))); //Constroi icone
+		frame.setTitle("Registrar Taxa"); //Constroi icone
+		
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int height = screenSize.height;
+		int width = screenSize.width;
+		frame.setLocation(width/2-frame.getSize().width/2, height/2-frame.getSize().height/2); //Constroi Localização Inicial
+        
+    } 
+
+	public void config(JPanel contentPane) {
+
+		contentPane.setBackground(SystemColor.menu); //Modifica o BG
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5)); //Modifica as bordas
+		
+		contentPane.setLayout(null);
+    }
+
+}
+
+
+
+```
 <!--
 ## View
 
