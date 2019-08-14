@@ -13,6 +13,9 @@ import com.config.cmd.Cmd;
 import com.config.cmd.Singleton;
 import com.elements.employee.Funcionario;
 import com.elements.schedule.Agenda;
+import com.memento.CareTaker;
+import com.memento.Memento;
+import com.memento.Originator;
 import com.visual.builder.MainViewBuilder;
 import com.visual.style.Style;
 
@@ -102,7 +105,7 @@ public class MainView extends JFrame{
 			
 			Cmd cmdSingleton = Singleton.getInstance();
 			cmdSingleton.saveS(funcionarios);
-				
+			
 			CalendarMT.clock(LBdata, LBhora, LBsemana, funcionarios);
 				
 			BTpattern.Command(BTadd, funcionarios, agenda, LBdata, LBhora, "ADD");

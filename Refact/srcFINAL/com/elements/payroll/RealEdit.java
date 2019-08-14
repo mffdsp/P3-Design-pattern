@@ -102,6 +102,7 @@ public class RealEdit extends JFrame {
 		lbpattern.addLBL(LBsind, contentPane, 260, 34, 92, 21);
 		lbpattern.addLBL(LBicon2, contentPane, 28, 247, 106, 107);
 		lbpattern.addLBL(LBnivel, contentPane, 35, -40, 106, 107);
+		LBnivel.setForeground(Color.blue);
 	
 		lateConfig(LBicon1, LBicon2, LBrs);
 		

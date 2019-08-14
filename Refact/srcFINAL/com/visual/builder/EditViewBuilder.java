@@ -1,7 +1,6 @@
 package com.visual.builder;
 
 import java.awt.Color;
-import java.awt.Dialog.ModalExclusionType;
 import java.awt.Dimension;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
@@ -9,11 +8,9 @@ import java.awt.Window.Type;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import com.visual.view.EditView;
-import com.visual.view.MainView;
 
 public class EditViewBuilder {
 	 public void config(EditView frame, String action) {

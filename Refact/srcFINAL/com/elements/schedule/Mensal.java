@@ -1,7 +1,5 @@
 package com.elements.schedule;
 
-import com.elements.employee.Assalariado;
-
 public class Mensal extends Agenda implements Cloneable, Config{
 	
 	private int dia = 0;

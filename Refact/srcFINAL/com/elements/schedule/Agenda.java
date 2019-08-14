@@ -1,7 +1,5 @@
 package com.elements.schedule;
 
-import com.elements.employee.Assalariado;
-
 public class Agenda implements Cloneable, SchedulePlan{
 	
 	 

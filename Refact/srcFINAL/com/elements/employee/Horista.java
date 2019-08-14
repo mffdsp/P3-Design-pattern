@@ -1,9 +1,5 @@
 package com.elements.employee;
 
-import com.config.adm.CalendarMT;
-import com.elements.schedule.Mensal;
-import com.elements.schedule.Semanal;
-
 public class Horista extends Funcionario implements Cloneable{
 	
 

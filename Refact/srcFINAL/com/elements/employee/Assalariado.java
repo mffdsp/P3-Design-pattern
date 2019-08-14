@@ -1,10 +1,5 @@
 package com.elements.employee;
 
-import com.config.adm.CalendarMT;
-import com.elements.schedule.Agenda;
-import com.elements.schedule.Mensal;
-import com.elements.schedule.Semanal;
-
 public class Assalariado extends Funcionario implements Cloneable{
 
 	public Assalariado(String name, String adress, String type, String payMode, String code) {
