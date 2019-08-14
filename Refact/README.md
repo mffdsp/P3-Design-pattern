@@ -4,7 +4,7 @@
 ## Links
 [Verificar código completo](https://github.com/mffdsp/P3-Refact/tree/master/Refact/srcFINAL/com)
 
-[Download .jar](https://github.com/mffdsp/P3-Refact/blob/master/Refact/refactory.jar)
+[Download .jar](https://github.com/mffdsp/P3-Refact/raw/master/Refact/refactory.jar)
 ```
 Funcionalidades Adicionadas:
 
