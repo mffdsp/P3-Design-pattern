@@ -125,18 +125,6 @@ public class Cmd implements CommandInterface{
 			System.err.println(ex); 
 		} 
 	}
-
-	@Override
-	public void Undo() {
-
-	}
-
-	@Override
-	public void Redo() {
-		// TODO Auto-generated method stub
-
-	}
-
 	@Override
 	public void Action(String action, Funcionario[] funcionarios) {
 
