@@ -12,15 +12,6 @@ Funcionalidades Adicionadas:
 	
 	- Funcionários possuem níveis de cargo, possibilitando bonus em salário.
 ```
-## Resumo
-
-| Tipo  | Exemplo de aplicação |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-|Factory | [com.draw.Draw](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Draw.java) |
-
-
 ## Design pattern
 
 - Factory Method <img src="icon/iconS.png" align = "right" >
@@ -39,7 +30,19 @@ Funcionalidades Adicionadas:
 
 - Observer <img src="icon/iconS.png" align = "right" >
 
-- Memento <img src="icon/iconN.png" align = "right" >
+---
+
+## Resumo
+| Tipo  | Exemplo de aplicação |
+| ------------- | ------------- |
+|Factory |  [com.factoryPattern.FactoryEmployee.java](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/factoryPattern/FactoryEmployee.java) |
+|Template | [com.draw.Draw](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Draw.java) |
+|State | [com.state.State](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/state/State.java)|
+|Observer |[com.view.DrawView.java](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/view/DrawView.java |
+|Command |[com.command.DrawCommand](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/command/DrawCommand.java) |
+|Prototype | [com.cmd.Cmd](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/cmd/Cmd.java) |
+|Singleton | [com.cmd.Singleton](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/cmd/Singleton.java) |
+|Builder | [com.style.Style](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/style/Style.java) |
 
 
 ---
