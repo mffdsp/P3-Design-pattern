@@ -14,8 +14,8 @@ Funcionalidades Adicionadas:
 ```
 ## Resumo
 
-Tipo | Exemplo de aplicação
-Factory | [com.draw.Draw](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Draw.java) 
+|Tipo | Exemplo de aplicação |
+|Factory | [com.draw.Draw](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Draw.java) |
 
 
 ## Design pattern
