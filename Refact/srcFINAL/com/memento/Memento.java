@@ -8,8 +8,6 @@ public class Memento {
 	
 	Funcionario[] f = new Funcionario[1000];
 	Agenda[] a = new Agenda[1000];
-	public boolean[] URpago = new boolean[1000];
-	public boolean[] payboo = new boolean[1000]; 
 	
 	public Funcionario[] getStateFuncionario() {
 		return f;
@@ -18,7 +16,6 @@ public class Memento {
 	public Agenda[] getStateAgenda() {
 		return a;
 	}
-	
 
 	public Memento(Agenda[] agenda, Funcionario[] func) {
 	
