@@ -12,7 +12,23 @@ Funcionalidades Adicionadas:
 	- Funcionários possuem níveis de cargo, possibilitando bonus em salário.
 ```
 ## Resumo
-
+---
+Design Pattern:
+- Factory
+- Command
+- Template
+- State
+- Builder
+- Prototype
+- Singleton
+- Observer
+Exemplo de aplicação:
+- [com.draw.Draw](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Draw.java) 
+-
+-
+-
+-
+---
 
 ## Design pattern
 
@@ -33,23 +49,7 @@ Funcionalidades Adicionadas:
 - Observer <img src="icon/iconS.png" align = "right" >
 
 - Memento <img src="icon/iconN.png" align = "right" >
----
-Design Pattern:
-- Factory
-- Command
-- Template
-- State
-- Builder
-- Prototype
-- Singleton
-- Observer
-Exemplo de aplicação:
-- [com.draw.Draw](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Draw.java) 
--
--
--
--
----
+
 
 ---
 # -Template Design Pattern-
