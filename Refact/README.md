@@ -1,5 +1,8 @@
 ---
-name: Button group
+name:
+  - android
+  - ios
+  - web
 category: Actions
 platforms:
   - android
