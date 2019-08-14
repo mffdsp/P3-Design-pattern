@@ -170,6 +170,7 @@ public class DrawView extends JFrame {
 Encapsula uma solicitação como um objeto;
 Nesse caso utilizei no desenho de uma Janela.
 
+## Em [com.command.DrawCommand](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/command/DrawCommand.java)
 ```java
 package command;
 
