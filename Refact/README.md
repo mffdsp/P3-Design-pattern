@@ -38,7 +38,7 @@ Funcionalidades Adicionadas:
 |Factory |  [com.factoryPattern.FactoryEmployee.java](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/factoryPattern/FactoryEmployee.java) |
 |Template | [com.draw.Draw](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Draw.java) |
 |State | [com.state.State](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/state/State.java)|
-|Observer |[com.view.DrawView.java](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/view/DrawView.java |
+|Observer |[com.view.DrawView.java](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/view/DrawView.java) |
 |Command |[com.command.DrawCommand](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/command/DrawCommand.java) |
 |Prototype | [com.cmd.Cmd](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/cmd/Cmd.java) |
 |Singleton | [com.cmd.Singleton](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/cmd/Singleton.java) |
