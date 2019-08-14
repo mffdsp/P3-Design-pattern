@@ -14,21 +14,7 @@ Funcionalidades Adicionadas:
 ```
 ## Resumo
 ---
-Design Pattern:
-	- Factory
-	- Command
-	- Template
-	- State
-	- Builder
-	- Prototype
-	- Singleton
-	- Observer
-Exemplo de aplicação:
-	- [com.draw.Draw](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Draw.java) 
-	-
-	-
-	-
-	-
+Factory ->  [com.draw.Draw](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/draw/Draw.java) 
 ---
 
 ## Design pattern
