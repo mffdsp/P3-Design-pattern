@@ -1,33 +1,7 @@
----
-name:
-  - android
-  - ios
-  - web
-category: Actions
-platforms:
-  - android
-  - ios
-  - web
-keywords:
-  - ButtonGroup
-  - choices
-  - decision
-  - call-to-action
-  - CTA
-  - segmented buttons
-  - divided buttons
-  - grouped actions
-  - multiple horizontal buttons
-  - multiple buttons
-  - set of buttons
-  - set of actions
-  - horizontal arrangement of buttons
-  - stacked
-  - segmented control
-  - ios
-  - android
----
-
+Markdown | Less | Pretty
+--- | --- | ---
+*Still*   `renders` | **nicely**
+1 | 2 | 3
 
 # P3-Refact
 
