@@ -45,6 +45,7 @@ Funcionalidades extras Adicionadas:
 |Singleton | [com.cmd.Singleton](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/cmd/Singleton.java) |
 |Builder | [com.style.Style](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/style/Style.java) |
 |Memento | [com.memento.Memento](https://github.com/mffdsp/P3-Refact/blob/master/Refact/srcFINAL/com/memento/) |
+|Facade | [com.memento.Memento](https://github.com/mffdsp/P3-Refact/blob/master/Refact/srcFINAL/com/memento/) |
 ---
 # -Template Design Pattern-
 
@@ -496,6 +497,31 @@ public class TaxaViewBuilder {
 
 
 ```
+
+## - Facade Pattern -
+A intensão deste padrão é encapsular uma lógica complicada agrupando-se chamadas de métodos e invocando esses métodos sequencialmente através de um único método.
+
+Aplicado em [])();
+
+```java
+public Union union = new Union();
+public TimeCard timecard = new TimeCard();
+public Agenda agenda = new Agenda();
+
+public boolean pagarFuncionario() {
+
+	boolean Uday = false;
+	
+	Uday = agenda.isValidDay(timecard.frequenciaD);
+	timecard.setPago(Uday);
+	timecard.pay();
+		
+	return timecard.isPago();
+
+}
+
+```
+
 <!--
 ## View
 
