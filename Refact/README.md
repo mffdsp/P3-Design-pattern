@@ -31,6 +31,8 @@ Funcionalidades extras Adicionadas:
 - Observer <img src="icon/iconS.png" align = "right" >
 
 - Memento <img src="icon/iconS.png" align = "right" >
+
+- Facade <img src="icon/iconS.png" align = "right" >
 ---
 
 ## Resumo
@@ -45,7 +47,7 @@ Funcionalidades extras Adicionadas:
 |Singleton | [com.cmd.Singleton](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/cmd/Singleton.java) |
 |Builder | [com.style.Style](https://github.com/mffdsp/P3-Refact/blob/master/Refact/src/com/style/Style.java) |
 |Memento | [com.memento.Memento](https://github.com/mffdsp/P3-Refact/blob/master/Refact/srcFINAL/com/memento/) |
-|Facade | [com.memento.Memento](https://github.com/mffdsp/P3-Refact/blob/master/Refact/srcFINAL/com/memento/) |
+|Facade | [com.elements.Employee](https://github.com/mffdsp/P3-Refact/blob/master/Refact/srcFINAL/com/elements/Employee.java) |
 ---
 # -Template Design Pattern-
 
