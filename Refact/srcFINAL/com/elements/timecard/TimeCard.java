@@ -39,6 +39,14 @@ public class TimeCard extends Check{
 		this.timeOUT = timeOUT;
 	}
 	
+	public void pay() {
+		
+		if(this.isPago()) {
+			this.frequenciaD = 5;
+			this.setURpago(true);
+		}
+	}
+	
 	
 
 }

@@ -1,5 +1,8 @@
 package com.elements.schedule;
 
+import com.config.adm.CalendarMT;
+import com.elements.timecard.TimeCard;
+
 public class Agenda implements Cloneable, SchedulePlan{
 	
 	 
@@ -30,5 +33,24 @@ public class Agenda implements Cloneable, SchedulePlan{
 	public void setSaved(boolean saved) {
 		this.saved = saved;
 	} 
+	
+	public boolean isValidDay(int frequency) {
+
+		boolean uday = false;
+	
+		if(this instanceof Mensal) 
+
+			uday = ( CalendarMT.Adia >= (((Mensal)this).getDia() - 2) && CalendarMT.weekday.equals("Sexta-Feira") ) ||
+					(CalendarMT.Adia == ((Mensal)this).getDia() && !CalendarMT.weekday.equals("Domingo")&& !CalendarMT.weekday.equals("Sabado"));
+			
+		if(this instanceof Semanal) {
+			 
+			uday = frequency >= ((Semanal)this).getFrequencia()*7 && CalendarMT.weekday.equals(((Semanal)this).getDia());
+		}
+		
+		return uday;
+
+	}
+	
 
 }

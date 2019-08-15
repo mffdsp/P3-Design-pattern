@@ -42,22 +42,11 @@ public abstract class Funcionario extends Signature implements Cloneable{
 	public boolean pagarFuncionario() {
 
 		boolean Uday = false;
+	
+		Uday = agenda.isValidDay(timecard.frequenciaD);
+		timecard.setPago(Uday);
+		timecard.pay();
 		
-		if(this.agenda instanceof Mensal) 
-		{
-			Uday = ( CalendarMT.Adia >= (((Mensal)this.agenda).getDia() - 2) && CalendarMT.weekday.equals("Sexta-Feira") ) ||
-					(CalendarMT.Adia == ((Mensal)this.agenda).getDia() && !CalendarMT.weekday.equals("Domingo")&& !CalendarMT.weekday.equals("Sabado"));
-			
-			timecard.setPago(Uday && timecard.frequenciaD >= 30);
-			
-		}else if(this.agenda instanceof Semanal) {
-			 
-			timecard.setPago(timecard.frequenciaD >= ((Semanal)this.agenda).getFrequencia()*7 && CalendarMT.weekday.equals(((Semanal)this.agenda).getDia()));
-		}
-		if(timecard.isPago()) {
-			this.timecard.frequenciaD = 5;
-			this.timecard.setURpago(true);
-		}
 		return timecard.isPago();
 
 	}
