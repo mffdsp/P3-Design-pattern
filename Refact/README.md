@@ -503,7 +503,7 @@ public class TaxaViewBuilder {
 ## - Facade Pattern -
 A intensão deste padrão é encapsular uma lógica complicada agrupando-se chamadas de métodos e invocando esses métodos sequencialmente através de um único método.
 
-Aplicado em [])();
+Aplicado em  [com.elements.Employee](https://github.com/mffdsp/P3-Refact/blob/master/Refact/srcFINAL/com/elements/employee/Funcionario.java)
 
 ```java
 public Union union = new Union();
