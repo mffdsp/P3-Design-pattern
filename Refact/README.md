@@ -6,7 +6,7 @@
 
 [Download .jar](https://github.com/mffdsp/P3-Refact/raw/master/Refact/refactory.jar)
 ```
-Funcionalidades Adicionadas:
+Funcionalidades extras Adicionadas:
 
 	- Realizar Sorteio promocional entre membros do sindicato.
 	
